@@ -76,6 +76,7 @@ Table of Contents
      1.1.  Terminology
      1.2.  Conventions
    2.  Updates to NETCONF operations
+     2.1.  Updates to RFC 6241
    Acknowledgments
    Authors' Addresses
 
@@ -111,6 +112,11 @@ Table of Contents
    the example being presented.
 
 2.  Updates to NETCONF operations
+
+2.1.  Updates to RFC 6241
+
+   The <get> and <get-config> rpc statements are augmented to accept
+   additional input parameters, as described in Section 3.
 
 Acknowledgments
 
