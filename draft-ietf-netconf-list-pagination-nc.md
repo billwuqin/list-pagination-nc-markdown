@@ -185,7 +185,7 @@ informative:
 
 ~~~~
    <CODE BEGINS> file "ietf-list-pagination-nc@2025-04-03.yang"
-
+{::include-fold ./yang/ietf-list-pagination-nc.yang}
    <CODE ENDS>
 ~~~~
 
