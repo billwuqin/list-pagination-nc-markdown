@@ -87,6 +87,7 @@ Table of Contents
      6.2.  The "YANG Module Names" Registry
    7.  Security Considerations
      7.1.  The "ietf-netconf-list-pagination" YANG Module
+   8.  Normative References
    Appendix A.  Appendix A.  Example YANG Module
    Appendix B.  Appendix B.  Example Data Set
    Appendix C.  Appendix C.  Example Queries
@@ -114,10 +115,16 @@ Table of Contents
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
    "OPTIONAL" in this document are to be interpreted as described in BCP
-   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   14 RFC2119 [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
 1.2.  Conventions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
 
    Various examples in this document use "BASE64VALUE=" as a placeholder
    value for binary data that has been base64 encoded (per Section 9.8
@@ -373,6 +380,17 @@ Table of Contents
    (see Section 9 of [RFC6241] and Section 6 of [RFC8526]) apply to the
    extension of operations <get>, <get-config>, and <get-data> defined
    in this document.
+
+8.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
 Appendix A.  Appendix A.  Example YANG Module
 
