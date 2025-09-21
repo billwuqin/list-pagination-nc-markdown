@@ -77,6 +77,10 @@ Table of Contents
      1.2.  Conventions
    2.  Updates to NETCONF operations
      2.1.  Updates to RFC 6241
+     2.2.  Updates to RFC 8526
+   3.  List Pagination for NETCONF
+   4.  Error Reporting
+     4.1.  The "offset" Query Parameter
    Acknowledgments
    Authors' Addresses
 
@@ -117,6 +121,84 @@ Table of Contents
 
    The <get> and <get-config> rpc statements are augmented to accept
    additional input parameters, as described in Section 3.
+
+2.2.  Updates to RFC 8526
+
+   The <get-data> rpc statement is augmented to accept additional input
+   parameters, as described in in Section 3.
+
+3.  List Pagination for NETCONF
+
+   In order for NETCONF to support [I-D.ietf-netconf-list-pagination],
+   this document extends the operations <get>, <get-config> and <get-
+   data> to include additional input parameters and output annotations.
+
+   The updated operations accept a content filter parameter, similar to
+   the "filter" parameter of <get-config>, but includes nodes for "list"
+   and "leaf-list" filtering.
+
+   The content filter parameter is used to specify the YANG list or
+   leaf-list that is to be retrieved.  This must be a path expression
+   used to represent a list or leaf-list data node.
+
+   The following tree diagram [RFC8340] illustrates the "ietf-netconf-
+   list-pagination" module:
+
+      module: ietf-list-pagination-nc
+
+        augment /nc:get/nc:input:
+          +---w list-pagination
+             +---w where?           union
+             +---w locale?          string {sort}?
+             +---w sort-by?         union {sort}?
+             +---w direction?       enumeration
+             +---w cursor?          string
+             +---w offset?          uint32
+             +---w limit?           union
+             +---w sublist-limit?   union
+        augment /nc:get-config/nc:input:
+          +---w list-pagination
+             +---w where?           union
+             +---w locale?          string {sort}?
+             +---w sort-by?         union {sort}?
+             +---w direction?       enumeration
+             +---w cursor?          string
+             +---w offset?          uint32
+             +---w limit?           union
+             +---w sublist-limit?   union
+        augment /ncds:get-data/ncds:input:
+          +---w list-pagination
+             +---w where?           union
+             +---w locale?          string {sort}?
+             +---w sort-by?         union {sort}?
+             +---w direction?       enumeration
+             +---w cursor?          string
+             +---w offset?          uint32
+             +---w limit?           union
+             +---w sublist-limit?   union
+
+   Comments:
+
+   *  This module augments three NETCONF "rpc" statements: get, get-
+      config, and get-data.
+
+   *  The "get" and "get-config" augments are against the YANG module
+      defined in [RFC6241].  The "get-data" augment is against the YANG
+      module defined in [RFC8526].
+
+4.  Error Reporting
+
+   When an input query parameter is supplied with an erroneous value, an
+   <rpc-error> MUST be returned containing the error-type value
+   "application", the error-tag value "invalid-value", and MAY include
+   the error-severity value "error".  Additionally the error-app-tag
+   SHOULD be set containing query parameter specific error value.
+
+4.1.  The "offset" Query Parameter
+
+   If the "offset" query parameter value supplied is larger than the
+   number of instances in the working result-set, the <rpc-error> MUST
+   contain error-app-tag with value "offset-out-of-range".
 
 Acknowledgments
 

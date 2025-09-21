@@ -1189,13 +1189,27 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
                 <p id="section-toc.1-1.2.2.1.1"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-updates-to-rfc-6241" class="internal xref">Updates to RFC 6241</a></p>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-updates-to-rfc-8526" class="internal xref">Updates to RFC 8526</a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-list-pagination-for-netconf" class="internal xref">List Pagination for NETCONF</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-error-reporting" class="internal xref">Error Reporting</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-the-offset-query-parameter" class="internal xref">The "offset" Query Parameter</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1256,21 +1270,118 @@ svg :is([fill="white"], [fill^="#fff"]) {
    additional input parameters, as described in Section 3.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="updates-to-rfc-8526">
+<section id="section-2.2">
+        <h3 id="name-updates-to-rfc-8526">
+<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-updates-to-rfc-8526" class="section-name selfRef">Updates to RFC 8526</a>
+        </h3>
+<p id="section-2.2-1">The &lt;get-data&gt; rpc statement is augmented to accept additional input
+   parameters, as described in in Section 3.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="list-pagination-for-netconf">
+<section id="section-3">
+      <h2 id="name-list-pagination-for-netconf">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-list-pagination-for-netconf" class="section-name selfRef">List Pagination for NETCONF</a>
+      </h2>
+<p id="section-3-1">In order for NETCONF to support [I-D.ietf-netconf-list-pagination],
+   this document extends the operations &lt;get&gt;, &lt;get-config&gt; and &lt;get-
+   data&gt; to include additional input parameters and output annotations.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">The updated operations accept a content filter parameter, similar to
+   the "filter" parameter of &lt;get-config&gt;, but includes nodes for "list"
+   and "leaf-list" filtering.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">The content filter parameter is used to specify the YANG list or
+   leaf-list that is to be retrieved.  This must be a path expression
+   used to represent a list or leaf-list data node.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-4">The following tree diagram [RFC8340] illustrates the "ietf-netconf-
+   list-pagination" module:<a href="#section-3-4" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3-5">
+<pre>
+   module: ietf-list-pagination-nc
+
+     augment /nc:get/nc:input:
+       +---w list-pagination
+          +---w where?           union
+          +---w locale?          string {sort}?
+          +---w sort-by?         union {sort}?
+          +---w direction?       enumeration
+          +---w cursor?          string
+          +---w offset?          uint32
+          +---w limit?           union
+          +---w sublist-limit?   union
+     augment /nc:get-config/nc:input:
+       +---w list-pagination
+          +---w where?           union
+          +---w locale?          string {sort}?
+          +---w sort-by?         union {sort}?
+          +---w direction?       enumeration
+          +---w cursor?          string
+          +---w offset?          uint32
+          +---w limit?           union
+          +---w sublist-limit?   union
+     augment /ncds:get-data/ncds:input:
+       +---w list-pagination
+          +---w where?           union
+          +---w locale?          string {sort}?
+          +---w sort-by?         union {sort}?
+          +---w direction?       enumeration
+          +---w cursor?          string
+          +---w offset?          uint32
+          +---w limit?           union
+          +---w sublist-limit?   union
+</pre><a href="#section-3-5" class="pilcrow">¶</a>
+</div>
+<p id="section-3-6">Comments:<a href="#section-3-6" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3-7.1">
+          <p id="section-3-7.1.1">This module augments three NETCONF "rpc" statements: get, get-
+config, and get-data.<a href="#section-3-7.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-3-7.2">
+          <p id="section-3-7.2.1">The "get" and "get-config" augments are against the YANG module
+defined in [RFC6241].  The "get-data" augment is against the YANG
+module defined in [RFC8526].<a href="#section-3-7.2.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+</section>
+</div>
+<div id="error-reporting">
+<section id="section-4">
+      <h2 id="name-error-reporting">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-error-reporting" class="section-name selfRef">Error Reporting</a>
+      </h2>
+<p id="section-4-1">When an input query parameter is supplied with an erroneous value, an
+   &lt;rpc-error&gt; MUST be returned containing the error-type value
+   "application", the error-tag value "invalid-value", and MAY include
+   the error-severity value "error".  Additionally the error-app-tag
+   SHOULD be set containing query parameter specific error value.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<div id="the-offset-query-parameter">
+<section id="section-4.1">
+        <h3 id="name-the-offset-query-parameter">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-the-offset-query-parameter" class="section-name selfRef">The "offset" Query Parameter</a>
+        </h3>
+<p id="section-4.1-1">If the "offset" query parameter value supplied is larger than the
+   number of instances in the working result-set, the &lt;rpc-error&gt; MUST
+   contain error-app-tag with value "offset-out-of-range".<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="acknowledgments">
-<section id="section-3">
+<section id="section-5">
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="section-3-1">This work has benefited from the discussions of RESTCONF resource
+<p id="section-5-1">This work has benefited from the discussions of RESTCONF resource
    collection over the years, in particular,
    [I-D.ietf-netconf-restconf-collection] which provides enhanced
    filtering features for the retrieval of data nodes with the GET
    method and [I-D.zheng-netconf-fragmentation] which document large
    size data handling challenge.  The authors would like to thank the
    following for lively discussions on list (ordered by first name):
-   Andy Bierman, Martin Björklund, Robert Varga, and Robert Wilton.<a href="#section-3-1" class="pilcrow">¶</a></p>
+   Andy Bierman, Martin Björklund, Robert Varga, and Robert Wilton.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
