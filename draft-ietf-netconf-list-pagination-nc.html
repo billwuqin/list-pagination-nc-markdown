@@ -1401,10 +1401,110 @@ module defined in [RFC8526].<a href="#section-3-7.2.1" class="pilcrow">¶</a></p
    as datastore contents by a server.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">This module has normative references to [RFC6241], [RFC6243],
    [RFC6991], and [RFC8342].<a href="#section-5-2" class="pilcrow">¶</a></p>
-<div class="sourcecode" id="section-5-3">
+<div class="breakable sourcecode" id="section-5-3">
 <pre>&lt;CODE BEGINS&gt; file "ietf-list-pagination-nc@2025-04-03.yang"
 
+   module ietf-list-pagination-nc {
+     yang-version 1.1;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc";
+     prefix lpgnc;
 
+     import ietf-netconf {
+       prefix nc;
+       reference
+         "RFC 6241: Network Configuration Protocol (NETCONF)";
+     }
+
+     import ietf-netconf-nmda {
+       prefix ncds;
+       reference
+         "RFC 8526: NETCONF Extensions to Support the
+                    Network Management Datastore Architecture";
+     }
+
+     import ietf-list-pagination {
+       prefix lpg;
+       reference
+         "RFC XXXX: List Pagination for YANG-driven Protocols";
+     }
+     organization
+       "IETF NETCONF (Network Configuration) Working Group";
+
+     contact
+         "WG Web:   &lt;https://datatracker.ietf.org/wg/netconf/&gt;
+          WG List:  &lt;mailto:netconf@ietf.org&gt;
+
+          Author:   Kent Watsen
+                    &lt;kent+ietf@watsen.net&gt;
+
+          Author:   Qin Wu
+                    &lt;bill.wu@huawei.com&gt;
+
+          Author:   Per Andersson
+                    &lt;per.ietf@ionio.se&gt;
+
+          Author:   Olof Hagsand
+                    &lt;olof@hagsand.se&gt;
+
+          Author:   Hongwei Li
+                    &lt;flycoolman@gmail.com&gt;";
+
+     description
+       "This module augments the &lt;get&gt;, &lt;get-config&gt;, and &lt;get-data&gt;
+        'rpc' statements to support list pagination.
+
+        Copyright (c) 2024 IETF Trust and the persons identified
+        as authors of the code. All rights reserved.
+
+        Redistribution and use in source and binary forms, with
+        or without modification, is permitted pursuant to, and
+        subject to the license terms contained in, the Revised
+        BSD License set forth in Section 4.c of the IETF Trust's
+        Legal Provisions Relating to IETF Documents
+        (https://trustee.ietf.org/license-info).
+
+        This version of this YANG module is part of RFC XXXX
+        (https://www.rfc-editor.org/info/rfcXXXX); see the RFC
+        itself for full legal notices.
+
+        The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL',
+        'SHALL NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED',
+        'NOT RECOMMENDED', 'MAY', and 'OPTIONAL' in this document
+        are to be interpreted as described in BCP 14 (RFC 2119)
+        (RFC 8174) when, and only when, they appear in all
+        capitals, as shown here.";
+
+     revision 2025-04-03 {
+       description
+         "Initial revision.";
+       reference
+         "RFC XXXX: NETCONF Extensions to Support List Pagination";
+     }
+
+     augment "/nc:get/nc:input" {
+       description
+         "Allow the 'get' operation to use content filter
+          parameter for specifying the YANG list or leaf-list
+          that is to be retrieved";
+       uses lpg:pagination-parameters;
+     }
+
+     augment "/nc:get-config/nc:input" {
+       description
+         "Allow the 'get-config' operation to use content filter
+          parameter for specifying the YANG list or leaf-list
+          that is to be retrieved";
+       uses lpg:pagination-parameters;
+     }
+
+     augment "/ncds:get-data/ncds:input" {
+       description
+         "Allow the 'get-data' operation to use content filter
+          parameter for specifying the YANG list or leaf-list
+          that is to be retrieved";
+       uses lpg:pagination-parameters;
+     }
+   }
 
 &lt;CODE ENDS&gt;</pre><a href="#section-5-3" class="pilcrow">¶</a>
 </div>
