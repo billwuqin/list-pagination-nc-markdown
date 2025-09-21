@@ -174,6 +174,20 @@ informative:
    number of instances in the working result-set, the &lt;rpc-error&gt; MUST
    contain error-app-tag with value "offset-out-of-range".
 
+#  YANG Module for List Pagination in NETCONF
+
+   The "ietf-netconf-list-pagination-nc" module defines conceptual
+   definitions within groupings, which are not meant to be implemented
+   as datastore contents by a server.
+
+   This module has normative references to [RFC6241], [RFC6243],
+   [RFC6991], and [RFC8342].
+
+~~~~
+   <CODE BEGINS> file "ietf-list-pagination-nc@2025-04-03.yang"
+
+   <CODE ENDS>
+~~~~
 
 # Acknowledgments
 {:numbered="false"}
