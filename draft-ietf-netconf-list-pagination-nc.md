@@ -5,11 +5,15 @@ category: std
 
 docname: draft-ietf-netconf-list-pagination-nc-latest
 submissiontype: IETF
+number:
+date:
+consensus: true
+v: 3
 area: "Operations and Management"
 workgroup: "Network Configuration"
-
 keyword:
  - list pagination
+ - yang data model
  - netconf
 
 author:
