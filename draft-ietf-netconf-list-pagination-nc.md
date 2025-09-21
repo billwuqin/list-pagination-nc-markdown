@@ -89,7 +89,10 @@ informative:
 
 #  Updates to NETCONF operations
 
+##  Updates to RFC 6241
 
+   The &lt;get&gt; and &lt;get-config&gt; rpc statements are augmented to accept
+   additional input parameters, as described in Section 3.
 
 # Acknowledgments
 {:numbered="false"}
