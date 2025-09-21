@@ -215,6 +215,32 @@ informative:
       prefix: pgnc
       RFC: XXXX
 
+#  Security Considerations
+
+##  The "ietf-netconf-list-pagination" YANG Module
+
+   This section follows the template defined in Section 3.7.1 of
+   [RFC8407].
+
+   The YANG module specified in this document defines a schema for data
+   that is designed to be accessed via network management protocols such
+   as NETCONF [RFC6241] or RESTCONF [RFC8040].  The lowest NETCONF layer
+   is the secure transport layer, and the mandatory-to-implement secure
+   transport is Secure Shell (SSH) [RFC6242].  The lowest RESTCONF layer
+   is HTTPS, and the mandatory-to-implement secure transport is TLS
+   [RFC8446].
+
+   The Network Configuration Access Control Model (NACM) [RFC8341]
+   provides the means to restrict access for particular NETCONF users to
+   a preconfigured subset of all available NETCONF protocol operations
+   and content.
+
+   The security considerations for the base NETCONF protocol operations
+   (see Section 9 of [RFC6241] and Section 6 of [RFC8526]) apply to the
+   extension of operations &lt;get&gt;, &lt;get-config&gt;, and &lt;get-data&gt; defined
+   in this document.
+
+
 # Acknowledgments
 {:numbered="false"}
 
