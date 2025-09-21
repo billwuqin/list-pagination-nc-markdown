@@ -5,16 +5,12 @@ category: std
 
 docname: draft-ietf-netconf-list-pagination-nc-latest
 submissiontype: IETF
-number:
-date:
-consensus: true
-v: 3
 area: "Operations and Management"
 workgroup: "Network Configuration"
+
 keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
+ - list pagination
+ - netconf
 
 author:
  -
