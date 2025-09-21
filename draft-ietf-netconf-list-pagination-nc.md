@@ -9,8 +9,8 @@ number:
 date:
 consensus: true
 v: 3
-area: OPS AREA
-workgroup: NETCONF WG Working Group
+area: "Operations and Management"
+workgroup: "Network Configuration"
 keyword:
  - next generation
  - unicorn
