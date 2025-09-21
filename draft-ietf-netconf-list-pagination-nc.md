@@ -242,6 +242,104 @@ informative:
 
 --- back
 
+# Appendix A.  Example YANG Module
+
+   The examples within this document use the "example-social" YANG
+   module defined in Appendix A.1 of [I-D.ietf-netconf-list-pagination].
+
+# Appendix B.  Example Data Set
+
+   The Example Data Set used by the examples is defined in Appendix A.2
+   of [I-D.ietf-netconf-list-pagination].
+
+# Appendix C.  Example Queries
+
+## C.1.  List pagination with all query parameters
+
+   This example mimics that Appendix A.3.9 of
+   [I-D.ietf-netconf-list-pagination].
+
+~~~~
+   <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="42">
+     <get>
+       <source>
+         <running/>
+       </source>
+       <filter type="xpath" select="/es:members/es:member"
+         xmlns:es="https://example.com/ns/example-social"/>
+       <list-pagination
+         xmlns="urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc">
+         <where>//stats[starts-with(joined,'2020')]</where>
+         <sort-by>joined</sort-by>
+         <direction>backwards</direction>
+         <offset>2</offset>
+         <limit>2</limit>
+         <sublist-limit>1</sublist-limit>
+         <locale>sv_US</locale>
+       </list-pagination>
+     </get>
+   </rpc>
+~~~~
+
+   Response from the NETCONF server:
+
+~~~~
+   <rpc-reply message-id="101"
+        xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+     <data>
+       <members
+         xmlns="https://example.com/ns/example-social"
+         xmlns:lp="urn:ietf:params:xml:ns:yang:ietf-list-pagination">
+         <member lp:remaining="1" lp:locale="en_US">
+           <member-id>eric</member-id>
+           <email-address>eric@example.com</email-address>
+           <password>$0$1543</password>
+           <avatar>BASE64VALUE=</avatar>
+           <tagline>Go to bed with dreams; wake up with purpose.</tagline>
+           <following>alice</following>
+           <posts>
+             <post>
+               <timestamp>2020-09-17T18:02:04Z</timestamp>
+               <title>Son, brother, husband, father</title>
+               <body>What's your story?</body>
+             </post>
+           </posts>
+           <favorites>
+             <bits lp:remaining="2" lp:locale="en_US">two</bits>
+           </favorites>
+           <stats>
+             <joined>2020-09-17T19:38:32Z</joined>
+             <membership-level>pro</membership-level>
+             <last-activity>2020-09-17T18:02:04Z</last-activity>
+           </stats>
+         </member>
+         <member lp:remaining="1" lp:locale="en_US">
+           <member-id>bob</member-id>
+           <email-address>bob@example.com</email-address>
+           <password>$0$1543</password>
+           <avatar>BASE64VALUE=</avatar>
+           <tagline>Here and now, like never before.</tagline>
+           <posts>
+             <post lp:remaining="2" lp:locale="en_US">
+               <timestamp>2020-08-14T03:32:25Z</timestamp>
+               <body>Just got in.</body>
+             </post>
+           </posts>
+           <favorites>
+             <decimal64-numbers lp:remaining="1" lp:locale="en_US">3.14\
+   159</decimal64-numbers>
+           </favorites>
+           <stats>
+             <joined>2020-08-14T03:30:00Z</joined>
+             <membership-level>standard</membership-level>
+             <last-activity>2020-08-14T03:34:30Z</last-activity>
+           </stats>
+         </member>
+       </members>
+     </data>
+   </rpc-reply>
+~~~~
+
 # Acknowledgments
 {:numbered="false"}
 
