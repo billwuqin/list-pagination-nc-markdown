@@ -1228,10 +1228,24 @@ svg :is([fill="white"], [fill^="#fff"]) {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-appendix-a-example-yang-mod" class="internal xref">Appendix A.  Example YANG Module</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-appendix-b-example-data-set" class="internal xref">Appendix B.  Example Data Set</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-appendix-c-example-queries" class="internal xref">Appendix C.  Example Queries</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
+                <p id="section-toc.1-1.10.2.1.1"><a href="#appendix-C.1" class="auto internal xref">C.1</a>.  <a href="#name-c1-list-pagination-with-all" class="internal xref">C.1.  List pagination with all query parameters</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1586,23 +1600,139 @@ module defined in [RFC8526].<a href="#section-3-7.2.1" class="pilcrow">¶</a></p
 </div>
 </section>
 </div>
-<div id="acknowledgments">
+<div id="appendix-a-example-yang-module">
 <section id="appendix-A">
+      <h2 id="name-appendix-a-example-yang-mod">
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-appendix-a-example-yang-mod" class="section-name selfRef">Appendix A.  Example YANG Module</a>
+      </h2>
+<p id="appendix-A-1">The examples within this document use the "example-social" YANG
+   module defined in Appendix A.1 of [I-D.ietf-netconf-list-pagination].<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="appendix-b-example-data-set">
+<section id="appendix-B">
+      <h2 id="name-appendix-b-example-data-set">
+<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-appendix-b-example-data-set" class="section-name selfRef">Appendix B.  Example Data Set</a>
+      </h2>
+<p id="appendix-B-1">The Example Data Set used by the examples is defined in Appendix A.2
+   of [I-D.ietf-netconf-list-pagination].<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="appendix-c-example-queries">
+<section id="appendix-C">
+      <h2 id="name-appendix-c-example-queries">
+<a href="#appendix-C" class="section-number selfRef">Appendix C. </a><a href="#name-appendix-c-example-queries" class="section-name selfRef">Appendix C.  Example Queries</a>
+      </h2>
+<div id="c1-list-pagination-with-all-query-parameters">
+<section id="appendix-C.1">
+        <h3 id="name-c1-list-pagination-with-all">
+<a href="#appendix-C.1" class="section-number selfRef">C.1. </a><a href="#name-c1-list-pagination-with-all" class="section-name selfRef">C.1.  List pagination with all query parameters</a>
+        </h3>
+<p id="appendix-C.1-1">This example mimics that Appendix A.3.9 of
+   [I-D.ietf-netconf-list-pagination].<a href="#appendix-C.1-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-C.1-2">
+<pre>
+   &lt;rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="42"&gt;
+     &lt;get&gt;
+       &lt;source&gt;
+         &lt;running/&gt;
+       &lt;/source&gt;
+       &lt;filter type="xpath" select="/es:members/es:member"
+         xmlns:es="https://example.com/ns/example-social"/&gt;
+       &lt;list-pagination
+         xmlns="urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc"&gt;
+         &lt;where&gt;//stats[starts-with(joined,'2020')]&lt;/where&gt;
+         &lt;sort-by&gt;joined&lt;/sort-by&gt;
+         &lt;direction&gt;backwards&lt;/direction&gt;
+         &lt;offset&gt;2&lt;/offset&gt;
+         &lt;limit&gt;2&lt;/limit&gt;
+         &lt;sublist-limit&gt;1&lt;/sublist-limit&gt;
+         &lt;locale&gt;sv_US&lt;/locale&gt;
+       &lt;/list-pagination&gt;
+     &lt;/get&gt;
+   &lt;/rpc&gt;
+</pre><a href="#appendix-C.1-2" class="pilcrow">¶</a>
+</div>
+<p id="appendix-C.1-3">Response from the NETCONF server:<a href="#appendix-C.1-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-C.1-4">
+<pre>
+   &lt;rpc-reply message-id="101"
+        xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"&gt;
+     &lt;data&gt;
+       &lt;members
+         xmlns="https://example.com/ns/example-social"
+         xmlns:lp="urn:ietf:params:xml:ns:yang:ietf-list-pagination"&gt;
+         &lt;member lp:remaining="1" lp:locale="en_US"&gt;
+           &lt;member-id&gt;eric&lt;/member-id&gt;
+           &lt;email-address&gt;eric@example.com&lt;/email-address&gt;
+           &lt;password&gt;$0$1543&lt;/password&gt;
+           &lt;avatar&gt;BASE64VALUE=&lt;/avatar&gt;
+           &lt;tagline&gt;Go to bed with dreams; wake up with purpose.&lt;/tagline&gt;
+           &lt;following&gt;alice&lt;/following&gt;
+           &lt;posts&gt;
+             &lt;post&gt;
+               &lt;timestamp&gt;2020-09-17T18:02:04Z&lt;/timestamp&gt;
+               &lt;title&gt;Son, brother, husband, father&lt;/title&gt;
+               &lt;body&gt;What's your story?&lt;/body&gt;
+             &lt;/post&gt;
+           &lt;/posts&gt;
+           &lt;favorites&gt;
+             &lt;bits lp:remaining="2" lp:locale="en_US"&gt;two&lt;/bits&gt;
+           &lt;/favorites&gt;
+           &lt;stats&gt;
+             &lt;joined&gt;2020-09-17T19:38:32Z&lt;/joined&gt;
+             &lt;membership-level&gt;pro&lt;/membership-level&gt;
+             &lt;last-activity&gt;2020-09-17T18:02:04Z&lt;/last-activity&gt;
+           &lt;/stats&gt;
+         &lt;/member&gt;
+         &lt;member lp:remaining="1" lp:locale="en_US"&gt;
+           &lt;member-id&gt;bob&lt;/member-id&gt;
+           &lt;email-address&gt;bob@example.com&lt;/email-address&gt;
+           &lt;password&gt;$0$1543&lt;/password&gt;
+           &lt;avatar&gt;BASE64VALUE=&lt;/avatar&gt;
+           &lt;tagline&gt;Here and now, like never before.&lt;/tagline&gt;
+           &lt;posts&gt;
+             &lt;post lp:remaining="2" lp:locale="en_US"&gt;
+               &lt;timestamp&gt;2020-08-14T03:32:25Z&lt;/timestamp&gt;
+               &lt;body&gt;Just got in.&lt;/body&gt;
+             &lt;/post&gt;
+           &lt;/posts&gt;
+           &lt;favorites&gt;
+             &lt;decimal64-numbers lp:remaining="1" lp:locale="en_US"&gt;3.14\
+   159&lt;/decimal64-numbers&gt;
+           &lt;/favorites&gt;
+           &lt;stats&gt;
+             &lt;joined&gt;2020-08-14T03:30:00Z&lt;/joined&gt;
+             &lt;membership-level&gt;standard&lt;/membership-level&gt;
+             &lt;last-activity&gt;2020-08-14T03:34:30Z&lt;/last-activity&gt;
+           &lt;/stats&gt;
+         &lt;/member&gt;
+       &lt;/members&gt;
+     &lt;/data&gt;
+   &lt;/rpc-reply&gt;
+</pre><a href="#appendix-C.1-4" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="acknowledgments">
+<section id="appendix-D">
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">This work has benefited from the discussions of RESTCONF resource
+<p id="appendix-D-1">This work has benefited from the discussions of RESTCONF resource
    collection over the years, in particular,
    [I-D.ietf-netconf-restconf-collection] which provides enhanced
    filtering features for the retrieval of data nodes with the GET
    method and [I-D.zheng-netconf-fragmentation] which document large
    size data handling challenge.  The authors would like to thank the
    following for lively discussions on list (ordered by first name):
-   Andy Bierman, Martin Björklund, Robert Varga, and Robert Wilton.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+   Andy Bierman, Martin Björklund, Robert Varga, and Robert Wilton.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-B">
+<section id="appendix-E">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
