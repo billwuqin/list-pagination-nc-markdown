@@ -189,6 +189,32 @@ informative:
    <CODE ENDS>
 ~~~~
 
+#  IANA Considerations
+
+##  The "IETF XML" Registry
+
+   This document registers one URI in the "ns" subregistry of the IETF
+   XML Registry [RFC3688] maintained at
+   https://www.iana.org/assignments/xml-registry/xml-registry.xhtml#ns.
+   Following the format in [RFC3688], the following registration is
+   requested:
+
+         URI: urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc
+         Registrant Contact: The IESG.
+         XML: N/A, the requested URI is an XML namespace.
+
+##  The "YANG Module Names" Registry
+
+   This document registers one YANG module in the YANG Module Names
+   registry [RFC6020] maintained at https://www.iana.org/assignments/
+   yang-parameters/yang-parameters.xhtml.  Following the format defined
+   in [RFC6020], the below registration is requested:
+
+      name: ietf-list-pagination-nc
+      namespace: urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc
+      prefix: pgnc
+      RFC: XXXX
+
 # Acknowledgments
 {:numbered="false"}
 
