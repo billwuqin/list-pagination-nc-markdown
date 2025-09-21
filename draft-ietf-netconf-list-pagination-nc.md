@@ -49,8 +49,8 @@ informative:
    This document defines a mapping of the list pagination mechanism
    defined in [I-D.ietf-netconf-list-pagination] to NETCONF [RFC6241].
 
-   This document updates [RFC6241], to augment the <get> and <get-
-   config> "rpc" statements, and [RFC8526], to augment the <get-data>
+   This document updates [RFC6241], to augment the &lt;get&gt; and &lt;get-
+   config> "rpc" statements, and [RFC8526], to augment the &lt;get-data&gt;
    "rpc" statement, to define input parameters necessary for list
    pagination.
 
@@ -91,22 +91,22 @@ informative:
 
 ##  Updates to RFC 6241
 
-   The <get> and <get-config> rpc statements are augmented to accept
+   The &lt;get&gt; and &lt;get-config&gt; rpc statements are augmented to accept
    additional input parameters, as described in Section 3.
 
 ##  Updates to RFC 8526
 
-   The <get-data> rpc statement is augmented to accept additional input
+   The &lt;get-data&gt; rpc statement is augmented to accept additional input
    parameters, as described in in Section 3.
 
 #  List Pagination for NETCONF
 
    In order for NETCONF to support [I-D.ietf-netconf-list-pagination],
-   this document extends the operations <get>, <get-config> and <get-
-   data> to include additional input parameters and output annotations.
+   this document extends the operations &lt;get&gt;, &lt;get-config&gt; and &lt;get-
+   data&gt; to include additional input parameters and output annotations.
 
    The updated operations accept a content filter parameter, similar to
-   the "filter" parameter of <get-config>, but includes nodes for "list"
+   the "filter" parameter of &lt;get-config&gt;, but includes nodes for "list"
    and "leaf-list" filtering.
 
    The content filter parameter is used to specify the YANG list or
@@ -162,7 +162,7 @@ informative:
 #  Error Reporting
 
    When an input query parameter is supplied with an erroneous value, an
-   <rpc-error> MUST be returned containing the error-type value
+   &lt;rpc-error&gt; MUST be returned containing the error-type value
    "application", the error-tag value "invalid-value", and MAY include
    the error-severity value "error".  Additionally the error-app-tag
    SHOULD be set containing query parameter specific error value.
@@ -170,7 +170,7 @@ informative:
 ##  The "offset" Query Parameter
 
    If the "offset" query parameter value supplied is larger than the
-   number of instances in the working result-set, the <rpc-error> MUST
+   number of instances in the working result-set, the &lt;rpc-error&gt; MUST
    contain error-app-tag with value "offset-out-of-range".
 
 #  YANG Module for List Pagination in NETCONF
@@ -235,7 +235,7 @@ informative:
 
    The security considerations for the base NETCONF protocol operations
    (see Section 9 of [RFC6241] and Section 6 of [RFC8526]) apply to the
-   extension of operations <get>, <get-config>, and <get-data> defined
+   extension of operations &lt;get&gt;, &lt;get-config&gt;, and &lt;get-data&gt; defined
    in this document.
 
 
