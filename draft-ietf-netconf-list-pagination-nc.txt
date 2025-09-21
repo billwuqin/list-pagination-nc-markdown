@@ -20,7 +20,13 @@ Expires: 25 March 2026                                            Huawei
 
 Abstract
 
-   TODO Abstract
+   This document defines a mapping of the list pagination mechanism
+   defined in [I-D.ietf-netconf-list-pagination] to NETCONF [RFC6241].
+
+   This document updates [RFC6241], to augment the <get> and <get-
+   config> "rpc" statements, and [RFC8526], to augment the <get-data>
+   "rpc" statement, to define input parameters necessary for list
+   pagination.
 
 Discussion Venues
 
@@ -67,47 +73,55 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  Normative References
+     1.1.  Terminology
+     1.2.  Conventions
+   2.  Updates to NETCONF operations
    Acknowledgments
    Authors' Addresses
 
 1.  Introduction
 
-   TODO Introduction
+   This document defines a mapping of the list pagination mechanism
+   defined in [I-D.ietf-netconf-list-pagination] to NETCONF [RFC6241].
 
-2.  Conventions and Definitions
+   This document updates [RFC6241] and [RFC8526], as described in
+   Section 2.
+
+   While the pagination mechanism defined in this document is designed
+   for the NETCONF protocol [RFC6241], the augmented RPCs MAY be used by
+   the RESTCONF protocol [RFC8040] if the RESTCONF server implements the
+   "ietf-list-pagination-nc" module.  The YANG data model in this
+   document conforms to the Network Management Datastore Architecture
+   defined in [RFC8342]
+
+1.1.  Terminology
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
-   "OPTIONAL" in this document are to be interpreted as described in
-   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   "OPTIONAL" in this document are to be interpreted as described in BCP
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+1.2.  Conventions
 
-   TODO Security
+   Various examples in this document use "BASE64VALUE=" as a placeholder
+   value for binary data that has been base64 encoded (per Section 9.8
+   of [RFC7950]).  This placeholder value is used because real base64
+   encoded structures are often many lines long and hence distracting to
+   the example being presented.
 
-4.  IANA Considerations
-
-   This document has no IANA actions.
-
-5.  Normative References
-
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/rfc/rfc2119>.
-
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+2.  Updates to NETCONF operations
 
 Acknowledgments
 
-   TODO acknowledge.
+   This work has benefited from the discussions of RESTCONF resource
+   collection over the years, in particular, [I-D.ietf-netconf-restconf-
+   collection] which provides enhanced filtering features for the
+   retrieval of data nodes with the GET method and [I-D.zheng-netconf-
+   fragmentation] which document large size data handling challenge.
+   The authors would like to thank the following for lively discussions
+   on list (ordered by first name): Andy Bierman, Martin Björklund,
+   Robert Varga, and Robert Wilton.
 
 Authors' Addresses
 
