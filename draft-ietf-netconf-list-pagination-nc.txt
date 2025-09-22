@@ -5,14 +5,14 @@
 Network Configuration                                          K. Watsen
 Internet-Draft                                           Watsen Networks
 Intended status: Standards Track                                   Q. Wu
-Expires: 25 March 2026                                            Huawei
+Expires: 26 March 2026                                            Huawei
                                                             P. Andersson
                                                                    Cisco
                                                               O. Hagsand
                                                                    SUNET
                                                                    H. Li
                                                                       HP
-                                                       21 September 2025
+                                                       22 September 2025
 
 
              NETCONF Extensions to Support List Pagination
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 March 2026.
+   This Internet-Draft will expire on 26 March 2026.
 
 Copyright Notice
 
@@ -87,7 +87,9 @@ Table of Contents
      6.2.  The "YANG Module Names" Registry
    7.  Security Considerations
      7.1.  The "ietf-netconf-list-pagination" YANG Module
-   8.  Normative References
+   8.  References
+     8.1.  Normative References
+     8.2.  Informative References
    Appendix A.  Appendix A.  Example YANG Module
    Appendix B.  Appendix B.  Example Data Set
    Appendix C.  Appendix C.  Example Queries
@@ -115,7 +117,7 @@ Table of Contents
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
    "OPTIONAL" in this document are to be interpreted as described in BCP
-   14 RFC2119 [RFC8174] when, and only when, they appear in all
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
 1.2.  Conventions
@@ -381,16 +383,105 @@ Table of Contents
    extension of operations <get>, <get-config>, and <get-data> defined
    in this document.
 
-8.  Normative References
+8.  References
+
+8.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/rfc/rfc2119>.
 
+   [RFC3688]  Mealling, M., "The IETF XML Registry", BCP 81, RFC 3688,
+              DOI 10.17487/RFC3688, January 2004,
+              <https://www.rfc-editor.org/rfc/rfc3688>.
+
+   [RFC6020]  Bjorklund, M., Ed., "YANG - A Data Modeling Language for
+              the Network Configuration Protocol (NETCONF)", RFC 6020,
+              DOI 10.17487/RFC6020, October 2010,
+              <https://www.rfc-editor.org/rfc/rfc6020>.
+
+   [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
+              and A. Bierman, Ed., "Network Configuration Protocol
+              (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
+              <https://www.rfc-editor.org/rfc/rfc6241>.
+
+   [RFC6242]  Wasserman, M., "Using the NETCONF Protocol over Secure
+              Shell (SSH)", RFC 6242, DOI 10.17487/RFC6242, June 2011,
+              <https://www.rfc-editor.org/rfc/rfc6242>.
+
+   [RFC6243]  Bierman, A. and B. Lengyel, "With-defaults Capability for
+              NETCONF", RFC 6243, DOI 10.17487/RFC6243, June 2011,
+              <https://www.rfc-editor.org/rfc/rfc6243>.
+
+   [RFC6991]  Schoenwaelder, J., Ed., "Common YANG Data Types",
+              RFC 6991, DOI 10.17487/RFC6991, July 2013,
+              <https://www.rfc-editor.org/rfc/rfc6991>.
+
+   [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
+              RFC 7950, DOI 10.17487/RFC7950, August 2016,
+              <https://www.rfc-editor.org/rfc/rfc7950>.
+
+   [RFC8040]  Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
+              Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
+              <https://www.rfc-editor.org/rfc/rfc8040>.
+
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
+              BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
+              <https://www.rfc-editor.org/rfc/rfc8340>.
+
+   [RFC8341]  Bierman, A. and M. Bjorklund, "Network Configuration
+              Access Control Model", STD 91, RFC 8341,
+              DOI 10.17487/RFC8341, March 2018,
+              <https://www.rfc-editor.org/rfc/rfc8341>.
+
+   [RFC8342]  Bjorklund, M., Schoenwaelder, J., Shafer, P., Watsen, K.,
+              and R. Wilton, "Network Management Datastore Architecture
+              (NMDA)", RFC 8342, DOI 10.17487/RFC8342, March 2018,
+              <https://www.rfc-editor.org/rfc/rfc8342>.
+
+   [RFC8407]  Bierman, A., "Guidelines for Authors and Reviewers of
+              Documents Containing YANG Data Models", BCP 216, RFC 8407,
+              DOI 10.17487/RFC8407, October 2018,
+              <https://www.rfc-editor.org/rfc/rfc8407>.
+
+   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
+              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
+              <https://www.rfc-editor.org/rfc/rfc8446>.
+
+   [RFC8526]  Bjorklund, M., Schoenwaelder, J., Shafer, P., Watsen, K.,
+              and R. Wilton, "NETCONF Extensions to Support the Network
+              Management Datastore Architecture", RFC 8526,
+              DOI 10.17487/RFC8526, March 2019,
+              <https://www.rfc-editor.org/rfc/rfc8526>.
+
+8.2.  Informative References
+
+   [I-D.ietf-netconf-list-pagination]
+              Watsen, K., Wu, Q., Andersson, P., Hagsand, O., and H. Li,
+              "List Pagination for YANG-driven Protocols", Work in
+              Progress, Internet-Draft, draft-ietf-netconf-list-
+              pagination-07, 3 April 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
+              list-pagination-07>.
+
+   [I-D.ietf-netconf-restconf-collection]
+              Bierman, A., Björklund, M., and K. Watsen, "RESTCONF
+              Collection Resource", Work in Progress, Internet-Draft,
+              draft-ietf-netconf-restconf-collection-00, 30 January
+              2015, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              netconf-restconf-collection-00>.
+
+   [I-D.zheng-netconf-fragmentation]
+              Zheng, G. and Z. Wang, "A NETCONF Extension for Data
+              Fragmentation", Work in Progress, Internet-Draft, draft-
+              zheng-netconf-fragmentation-02, 26 June 2018,
+              <https://datatracker.ietf.org/doc/html/draft-zheng-
+              netconf-fragmentation-02>.
 
 Appendix A.  Appendix A.  Example YANG Module
 
@@ -406,8 +497,8 @@ Appendix C.  Appendix C.  Example Queries
 
 C.1.  C.1.  List pagination with all query parameters
 
-   This example mimics that Appendix A.3.9 of [I-D.ietf-netconf-list-
-   pagination].
+   This example mimics that Appendix A.3.9 of
+   [I-D.ietf-netconf-list-pagination].
 
    <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="42">
      <get>
@@ -489,13 +580,13 @@ C.1.  C.1.  List pagination with all query parameters
 Acknowledgments
 
    This work has benefited from the discussions of RESTCONF resource
-   collection over the years, in particular, [I-D.ietf-netconf-restconf-
-   collection] which provides enhanced filtering features for the
-   retrieval of data nodes with the GET method and [I-D.zheng-netconf-
-   fragmentation] which document large size data handling challenge.
-   The authors would like to thank the following for lively discussions
-   on list (ordered by first name): Andy Bierman, Martin Björklund,
-   Robert Varga, and Robert Wilton.
+   collection over the years, in particular,
+   [I-D.ietf-netconf-restconf-collection] which provides enhanced
+   filtering features for the retrieval of data nodes with the GET
+   method and [I-D.zheng-netconf-fragmentation] which document large
+   size data handling challenge.  The authors would like to thank the
+   following for lively discussions on list (ordered by first name):
+   Andy Bierman, Martin Björklund, Robert Varga, and Robert Wilton.
 
 Authors' Addresses
 
