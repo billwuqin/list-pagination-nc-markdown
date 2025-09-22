@@ -564,8 +564,7 @@ C.1.  C.1.  List pagination with all query parameters
              </post>
            </posts>
            <favorites>
-             <decimal64-numbers lp:remaining="1" lp:locale="en_US">3.14\
-   159</decimal64-numbers>
+             <decimal64-numbers lp:remaining="1" lp:locale="en_US">3.14159</decimal64-numbers>
            </favorites>
            <stats>
              <joined>2020-08-14T03:30:00Z</joined>
