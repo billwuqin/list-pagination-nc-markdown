@@ -47,10 +47,10 @@ informative:
 --- abstract
 
    This document defines a mapping of the list pagination mechanism
-   defined in [I-D.ietf-netconf-list-pagination] to NETCONF [RFC6241].
+   defined in {{?I-D.ietf-netconf-list-pagination}} to NETCONF {{!RFC6241}}.
 
-   This document updates [RFC6241], to augment the &lt;get&gt; and &lt;get-
-   config> "rpc" statements, and [RFC8526], to augment the &lt;get-data&gt;
+   This document updates {{!RFC6241}}, to augment the &lt;get&gt; and &lt;get-
+   config&gt; "rpc" statements, and {{!RFC8526}}, to augment the &lt;get-data&gt;
    "rpc" statement, to define input parameters necessary for list
    pagination.
 
@@ -59,24 +59,24 @@ informative:
 # Introduction
 
    This document defines a mapping of the list pagination mechanism
-   defined in [I-D.ietf-netconf-list-pagination] to NETCONF [RFC6241].
+   defined in {{?I-D.ietf-netconf-list-pagination}} to NETCONF {{!RFC6241}}.
 
-   This document updates [RFC6241] and [RFC8526], as described in
+   This document updates {{!RFC6241}} and {{!RFC8526}}, as described in
    Section 2.
 
    While the pagination mechanism defined in this document is designed
-   for the NETCONF protocol [RFC6241], the augmented RPCs MAY be used by
-   the RESTCONF protocol [RFC8040] if the RESTCONF server implements the
+   for the NETCONF protocol {{!RFC6241}}, the augmented RPCs MAY be used by
+   the RESTCONF protocol {{!RFC8040}} if the RESTCONF server implements the
    "ietf-list-pagination-nc" module.
    The YANG data model in this document conforms to the Network
-   Management Datastore Architecture defined in [RFC8342]
+   Management Datastore Architecture defined in {{!RFC8342}}
 
 ##  Terminology
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
    "OPTIONAL" in this document are to be interpreted as described in BCP
-   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   14 {{!RFC2119}} {{!RFC8174}} when, and only when, they appear in all
    capitals, as shown here.
 
 ##  Conventions
@@ -84,7 +84,7 @@ informative:
 
    Various examples in this document use "BASE64VALUE=" as a placeholder
    value for binary data that has been base64 encoded (per Section 9.8
-   of [RFC7950]).  This placeholder value is used because real base64
+   of {{!RFC7950}}).  This placeholder value is used because real base64
    encoded structures are often many lines long and hence distracting to
    the example being presented.
 
@@ -103,7 +103,7 @@ informative:
 
 #  List Pagination for NETCONF
 
-   In order for NETCONF to support [I-D.ietf-netconf-list-pagination],
+   In order for NETCONF to support {{?I-D.ietf-netconf-list-pagination}},
    this document extends the operations &lt;get&gt;, &lt;get-config&gt; and &lt;get-
    data&gt; to include additional input parameters and output annotations.
 
@@ -115,7 +115,7 @@ informative:
    leaf-list that is to be retrieved.  This must be a path expression
    used to represent a list or leaf-list data node.
 
-   The following tree diagram [RFC8340] illustrates the "ietf-netconf-
+   The following tree diagram {{!RFC8340}} illustrates the "ietf-netconf-
    list-pagination" module:
 
 ~~~~
@@ -158,8 +158,8 @@ informative:
       config, and get-data.
 
    *  The "get" and "get-config" augments are against the YANG module
-      defined in [RFC6241].  The "get-data" augment is against the YANG
-      module defined in [RFC8526].
+      defined in {{!RFC6241}}.  The "get-data" augment is against the YANG
+      module defined in {{!RFC8526}}.
 
 #  Error Reporting
 
@@ -181,8 +181,8 @@ informative:
    definitions within groupings, which are not meant to be implemented
    as datastore contents by a server.
 
-   This module has normative references to [RFC6241], [RFC6243],
-   [RFC6991], and [RFC8342].
+   This module has normative references to {{!RFC6241}}, {{!RFC6243}},
+   {{!RFC6991}}, and {{!RFC8342}}.
 
 ~~~~
    <CODE BEGINS> file "ietf-list-pagination-nc@2025-04-03.yang"
@@ -195,9 +195,9 @@ informative:
 ##  The "IETF XML" Registry
 
    This document registers one URI in the "ns" subregistry of the IETF
-   XML Registry [RFC3688] maintained at
+   XML Registry {{!RFC3688}} maintained at
    https://www.iana.org/assignments/xml-registry/xml-registry.xhtml#ns.
-   Following the format in [RFC3688], the following registration is
+   Following the format in {{!RFC3688}}, the following registration is
    requested:
 
          URI: urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc
@@ -207,9 +207,9 @@ informative:
 ##  The "YANG Module Names" Registry
 
    This document registers one YANG module in the YANG Module Names
-   registry [RFC6020] maintained at https://www.iana.org/assignments/
+   registry {{!RFC6020}} maintained at https://www.iana.org/assignments/
    yang-parameters/yang-parameters.xhtml.  Following the format defined
-   in [RFC6020], the below registration is requested:
+   in {{!RFC6020}}, the below registration is requested:
 
       name: ietf-list-pagination-nc
       namespace: urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc
@@ -221,23 +221,23 @@ informative:
 ##  The "ietf-netconf-list-pagination" YANG Module
 
    This section follows the template defined in Section 3.7.1 of
-   [RFC8407].
+   {{!RFC8407}}.
 
    The YANG module specified in this document defines a schema for data
    that is designed to be accessed via network management protocols such
-   as NETCONF [RFC6241] or RESTCONF [RFC8040].  The lowest NETCONF layer
+   as NETCONF {{!RFC6241}} or RESTCONF {{!RFC8040}}.  The lowest NETCONF layer
    is the secure transport layer, and the mandatory-to-implement secure
-   transport is Secure Shell (SSH) [RFC6242].  The lowest RESTCONF layer
+   transport is Secure Shell (SSH) {{!RFC6242}}.  The lowest RESTCONF layer
    is HTTPS, and the mandatory-to-implement secure transport is TLS
-   [RFC8446].
+   {{!RFC8446}}.
 
-   The Network Configuration Access Control Model (NACM) [RFC8341]
+   The Network Configuration Access Control Model (NACM) {{!RFC8341}}
    provides the means to restrict access for particular NETCONF users to
    a preconfigured subset of all available NETCONF protocol operations
    and content.
 
    The security considerations for the base NETCONF protocol operations
-   (see Section 9 of [RFC6241] and Section 6 of [RFC8526]) apply to the
+   (see Section 9 of {{!RFC6241}} and Section 6 of {{!RFC8526}}) apply to the
    extension of operations &lt;get&gt;, &lt;get-config&gt;, and &lt;get-data&gt; defined
    in this document.
 
@@ -246,19 +246,19 @@ informative:
 # Appendix A.  Example YANG Module
 
    The examples within this document use the "example-social" YANG
-   module defined in Appendix A.1 of [I-D.ietf-netconf-list-pagination].
+   module defined in Appendix A.1 of {{?I-D.ietf-netconf-list-pagination}}.
 
 # Appendix B.  Example Data Set
 
    The Example Data Set used by the examples is defined in Appendix A.2
-   of [I-D.ietf-netconf-list-pagination].
+   of {{?I-D.ietf-netconf-list-pagination}}.
 
 # Appendix C.  Example Queries
 
 ## C.1.  List pagination with all query parameters
 
    This example mimics that Appendix A.3.9 of
-   [I-D.ietf-netconf-list-pagination].
+   {{?I-D.ietf-netconf-list-pagination}}.
 
 ~~~~
    <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="42">
@@ -346,9 +346,9 @@ informative:
 
    This work has benefited from the discussions of RESTCONF resource
    collection over the years, in particular,
-   [I-D.ietf-netconf-restconf-collection] which provides enhanced
+   {{?I-D.ietf-netconf-restconf-collection}} which provides enhanced
    filtering features for the retrieval of data nodes with the GET
-   method and [I-D.zheng-netconf-fragmentation] which document large
+   method and {{?I-D.zheng-netconf-fragmentation}} which document large
    size data handling challenge.  The authors would like to thank the
    following for lively discussions on list (ordered by first name):
    Andy Bierman, Martin Björklund, Robert Varga, and Robert Wilton.
