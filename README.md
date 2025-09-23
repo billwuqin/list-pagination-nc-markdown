@@ -4,11 +4,10 @@
 
 This is the working area for the IETF [NETCONF Working Group](https://datatracker.ietf.org/group/netconf/documents/) Internet-Draft, "NETCONF Extensions to Support List Pagination".
 
-* [Editor's Copy](https://billwuqin.github.io/list-pagination-nc-markdown/#go.draft-ietf-netconf-list-pagination-nc.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-netconf-list-pagination-nc)
-* [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-netconf-list-pagination-nc)
-* [Compare Editor's Copy to Working Group Draft](https://billwuqin.github.io/list-pagination-nc-markdown/#go.draft-ietf-netconf-list-pagination-nc.diff)
-
+* [Editor's Copy](http://htmlpreview.github.io/?https://github.com/billwuqin/list-pagination-nc-markdown/gh-pages/draft-ietf-netconf-list-pagination-nc.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-netconf-list-pagination)
+* [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-netconf-list-pagination)
+* [Compare Editor's Copy to Working Group Draft](https://author-tools.ietf.org/diff?url_1=https://raw.githubusercontent.com/billwuqin/list-pagination-nc-markdown/gh-pages/draft-ietf-netconf-list-pagination-nc.txt)
 
 ## Contributing
 
