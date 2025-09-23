@@ -260,6 +260,7 @@ informative:
    This example mimics that Appendix A.3.9 of {{?I-D.ietf-netconf-list-pagination}}.
    In this XML example, The xmlns:es attribute binds the 'es' prefix to the example-social module name.
    The xmlns:lpgnc attribute binds the lpgnc prefix to the urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc namespace.
+
 ~~~~
    <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="42">
      <get>
