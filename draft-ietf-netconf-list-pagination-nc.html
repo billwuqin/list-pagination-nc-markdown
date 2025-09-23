@@ -1059,7 +1059,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Watsen, et al.</td>
-<td class="center">Expires 26 March 2026</td>
+<td class="center">Expires 27 March 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1072,12 +1072,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-netconf-list-pagination-nc-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-09-22" class="published">22 September 2025</time>
+<time datetime="2025-09-23" class="published">23 September 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-03-26">26 March 2026</time></dd>
+<dd class="expires"><time datetime="2026-03-27">27 March 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1143,7 +1143,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 March 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 27 March 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1744,8 +1744,9 @@ module defined in <span>[<a href="#RFC8526" class="cite xref">RFC8526</a>]</span
         <h3 id="name-c1-list-pagination-with-all">
 <a href="#appendix-C.1" class="section-number selfRef">C.1. </a><a href="#name-c1-list-pagination-with-all" class="section-name selfRef">C.1.  List pagination with all query parameters</a>
         </h3>
-<p id="appendix-C.1-1">This example mimics that Appendix A.3.9 of
-   <span>[<a href="#I-D.ietf-netconf-list-pagination" class="cite xref">I-D.ietf-netconf-list-pagination</a>]</span>.<a href="#appendix-C.1-1" class="pilcrow">¶</a></p>
+<p id="appendix-C.1-1">This example mimics that Appendix A.3.9 of <span>[<a href="#I-D.ietf-netconf-list-pagination" class="cite xref">I-D.ietf-netconf-list-pagination</a>]</span>.
+   In this XML example, The xmlns:es attribute binds the 'es' prefix to the example-social module name.
+   The xmlns:lpgnc attribute binds the lpgnc prefix to the urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc namespace.<a href="#appendix-C.1-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-C.1-2">
 <pre>
    &lt;rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="42"&gt;
@@ -1755,16 +1756,16 @@ module defined in <span>[<a href="#RFC8526" class="cite xref">RFC8526</a>]</span
        &lt;/source&gt;
        &lt;filter type="xpath" select="/es:members/es:member"
          xmlns:es="https://example.com/ns/example-social"/&gt;
-       &lt;list-pagination
-         xmlns="urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc"&gt;
-         &lt;where&gt;//stats[starts-with(joined,'2020')]&lt;/where&gt;
-         &lt;sort-by&gt;joined&lt;/sort-by&gt;
-         &lt;direction&gt;backwards&lt;/direction&gt;
-         &lt;offset&gt;2&lt;/offset&gt;
-         &lt;limit&gt;2&lt;/limit&gt;
-         &lt;sublist-limit&gt;1&lt;/sublist-limit&gt;
-         &lt;locale&gt;sv_US&lt;/locale&gt;
-       &lt;/list-pagination&gt;
+       &lt;lgpnc:list-pagination
+         xmlns:lpgnc="urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc"&gt;
+         &lt;lgpnc:where&gt;//stats[starts-with(joined,'2020')]&lt;/lgpnc:where&gt;
+         &lt;lgpnc:sort-by&gt;joined&lt;/lgpnc:sort-by&gt;
+         &lt;lgpnc:direction&gt;backwards&lt;/lgpnc:direction&gt;
+         &lt;lgpnc:offset&gt;2&lt;/lgpnc:offset&gt;
+         &lt;lgpnc:limit&gt;2&lt;/lgpnc:limit&gt;
+         &lt;lgpnc:sublist-limit&gt;1&lt;/lgpnc:sublist-limit&gt;
+         &lt;lgpnc:locale&gt;sv_US&lt;/lgpnc:locale&gt;
+       &lt;/lgpnc:list-pagination&gt;
      &lt;/get&gt;
    &lt;/rpc&gt;
 </pre><a href="#appendix-C.1-2" class="pilcrow">¶</a>
