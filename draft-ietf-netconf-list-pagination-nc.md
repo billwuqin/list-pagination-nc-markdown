@@ -257,9 +257,9 @@ informative:
 
 ## C.1.  List pagination with all query parameters
 
-   This example mimics that Appendix A.3.9 of
-   {{?I-D.ietf-netconf-list-pagination}}.
-
+   This example mimics that Appendix A.3.9 of {{?I-D.ietf-netconf-list-pagination}}.
+   In this XML example, The xmlns:es attribute binds the 'es' prefix to the example-social module name.
+   The xmlns:lpgnc attribute binds the lpgnc prefix to the urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc namespace.
 ~~~~
    <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="42">
      <get>
@@ -268,16 +268,16 @@ informative:
        </source>
        <filter type="xpath" select="/es:members/es:member"
          xmlns:es="https://example.com/ns/example-social"/>
-       <list-pagination
-         xmlns="urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc">
-         <where>//stats[starts-with(joined,'2020')]</where>
-         <sort-by>joined</sort-by>
-         <direction>backwards</direction>
-         <offset>2</offset>
-         <limit>2</limit>
-         <sublist-limit>1</sublist-limit>
-         <locale>sv_US</locale>
-       </list-pagination>
+       <lgpnc:list-pagination
+         xmlns:lpgnc="urn:ietf:params:xml:ns:yang:ietf-list-pagination-nc">
+         <lgpnc:where>//stats[starts-with(joined,'2020')]</lgpnc:where>
+         <lgpnc:sort-by>joined</lgpnc:sort-by>
+         <lgpnc:direction>backwards</lgpnc:direction>
+         <lgpnc:offset>2</lgpnc:offset>
+         <lgpnc:limit>2</lgpnc:limit>
+         <lgpnc:sublist-limit>1</lgpnc:sublist-limit>
+         <lgpnc:locale>sv_US</lgpnc:locale>
+       </lgpnc:list-pagination>
      </get>
    </rpc>
 ~~~~
