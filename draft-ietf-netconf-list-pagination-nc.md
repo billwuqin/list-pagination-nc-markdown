@@ -341,18 +341,6 @@ informative:
    </rpc-reply>
 ~~~~
 
-# Acknowledgments
-{:numbered="false"}
-
-   This work has benefited from the discussions of RESTCONF resource
-   collection over the years, in particular,
-   {{?I-D.ietf-netconf-restconf-collection}} which provides enhanced
-   filtering features for the retrieval of data nodes with the GET
-   method and {{?I-D.zheng-netconf-fragmentation}} which document large
-   size data handling challenge.  The authors would like to thank the
-   following for lively discussions on list (ordered by first name):
-   Andy Bierman, Martin Björklund, Robert Varga, and Robert Wilton.
-
 # Campus Network Operation Agent Test Requirements
 
 ## Network Topology Test Requirements
@@ -522,3 +510,15 @@ The Test requirements for Data Center Network Operation Agent Scenario is shown 
 |Test Step|a) Triggered Events: Pre-set network anomaly events are required for constructing test cases, and the fault trigger time is recorded b) Autonomous Execution: The agent automatically perceives the event and executes the reasoning and handling process c) Data Acquisition: The test system records the entire agent execution process,network state changes,task completion time, whether security violations occurred, and the completeness of audit logs d) Result Determination: The final network state is compared with the expected state to assess the service impact and calculate the score|
 |Expected Resutls|Calculate the score based on the agent capability to tackle the responsive task test questions|
 {: #dc-interact title="Interactive Q&A Test System Requirements"}
+
+# Acknowledgments
+{:numbered="false"}
+
+   This work has benefited from the discussions of RESTCONF resource
+   collection over the years, in particular,
+   {{?I-D.ietf-netconf-restconf-collection}} which provides enhanced
+   filtering features for the retrieval of data nodes with the GET
+   method and {{?I-D.zheng-netconf-fragmentation}} which document large
+   size data handling challenge.  The authors would like to thank the
+   following for lively discussions on list (ordered by first name):
+   Andy Bierman, Martin Björklund, Robert Varga, and Robert Wilton.
