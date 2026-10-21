@@ -18,25 +18,25 @@
    "rpc" statement, to define input parameters necessary for list
    pagination. 
     ' name="description">
-<meta content="xml2rfc 3.30.2" name="generator">
+<meta content="xml2rfc 3.34.1" name="generator">
 <meta content="list pagination" name="keyword">
 <meta content="yang data model" name="keyword">
 <meta content="netconf" name="keyword">
 <meta content="draft-ietf-netconf-list-pagination-nc-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.2
-    Python 3.12.11
-    ConfigArgParse 1.7
+  xml2rfc 3.34.1
+    Python 3.14.8
+    ConfigArgParse 1.8.0
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
+    intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 5.3.1
-    platformdirs 4.4.0
+    lxml 6.1.1
+    natsort 8.4.0
+    platformdirs 4.13.4
     pycountry 24.6.1
-    PyYAML 6.0.2
-    requests 2.32.5
-    setuptools 80.9.0
-    wcwidth 0.2.13
+    PyYAML 6.0.3
+    requests 2.33.1
+    wcwidth 0.9.2
 -->
 <link href="draft-ietf-netconf-list-pagination-nc.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -72,7 +72,6 @@
   src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: italic;
@@ -121,7 +120,6 @@
   src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: normal;
@@ -177,7 +175,7 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -185,7 +183,7 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -302,16 +300,19 @@ h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5;
   color: var(--title-color);
 }
-h1#title {
-  font-size: 32px;
-  line-height: 40px;
-  clear: both;
-}
-h1#title, h1#rfcnum {
-  margin: 1.5em 0 0.2em;
-}
-h1#rfcnum + h1#title {
-  margin: 0.2em 0;
+h1 {
+  &#title {
+    font-size: 32px;
+    line-height: 40px;
+    clear: both;
+    margin: 1.5em 0 0.2em;
+  }
+  &#rfcnum {
+    margin: 1.5em 0 0.2em;
+    & + h1#title {
+      margin: 0.2em 0;
+    }
+  }
 }
 
 h1, h2, h3 {
@@ -331,10 +332,10 @@ h4, h5, h6 {
 #abstract+p {
   font-size: 18px;
   line-height: 24px;
-}
-#abstract+p code, #abstract+p samp, #abstract+p tt {
-  font-size: 16px;
-  line-height: 0;
+  & code, & samp, & tt {
+    font-size: 16px;
+    line-height: 0;
+  }
 }
 
 p {
@@ -345,59 +346,59 @@ p {
 div {
   margin: 0;
 }
-.alignRight.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignRight.art-text pre {
-  padding: 0;
-  width: auto;
-}
 .alignRight {
   margin: 1em 0;
-}
-.alignRight > *:first-child {
-  border: none;
-  margin: 0;
-  float: right;
-  clear: both;
-}
-.alignRight > *:nth-child(2) {
-  clear: both;
-  display: block;
-  border: none;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    margin: 0;
+    float: right;
+    clear: both;
+  }
+  & > *:nth-child(2) {
+    clear: both;
+    display: block;
+    border: none;
+  }
 }
 svg {
   display: block;
-}
-/* font-family isn't space-separated, but =~ will have to do */
-svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
-  font-family: var(--font-mono);
-}
-.alignCenter.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignCenter.art-text pre {
-  padding: 0;
-  width: auto;
+  /* font-family isn't space-separated, but =~ will have to do */
+  &[font-family~="monospace" i], & [font-family~="monospace" i] {
+    font-family: var(--font-mono);
+  }
 }
 .alignCenter {
   margin: 1em 0;
-}
-.alignCenter > *:first-child {
-  border: none;
-  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
-     support flexbox yet.
-  */
-  display: table;
-  margin: 0 auto;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+       support flexbox yet.
+    */
+    display: table;
+    margin: 0 auto;
+  }
 }
 
 /* lists */
@@ -435,26 +436,25 @@ dl {
     --indent: 5ch;
     & > dt {
       min-width: calc(var(--indent) - 2ch);
+      float: none;
     }
-  }
-  &.olPercent > dt {
-    float: none;
   }
 
   dl > dd > & {
     margin-top: 0.5em;
     margin-bottom: 0;
   }
-}
-dl:not(.dlNewline) > dt {
-  float: left;
-  margin-right: 2ch;
-  min-width: 8ch;
-}
-dl > dd {
-  margin-bottom: .8em;
-  margin-left: var(--indent) !important; /* stupid element overrides */
-  min-height: 2ex;
+
+  &:not(.dlNewline) > dt {
+    float: left;
+    margin-right: 2ch;
+    min-width: 8ch;
+  }
+  & > dd {
+    margin-bottom: .8em;
+    margin-left: var(--indent) !important; /* stupid element overrides */
+    min-height: 2ex;
+  }
 }
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
@@ -470,20 +470,22 @@ dl > dd {
 }
 
 /* links */
-a, a[href].selfRef:hover {
+a {
   text-decoration: none;
+  &[href] {
+    color: var(--link-color);
+    &:hover { text-decoration: underline; }
+    &.selfRef {
+      color: var(--text-color);
+      &:hover {
+        text-decoration: none;
+        background-color: var(--highlight-color);
+      }
+    }
+  }
 }
-a[href] {
-  color: var(--link-color);
-}
-a[href].selfRef, .iref + a[href].internal {
+.iref + a[href].internal {
   color: var(--text-color);
-}
-a[href]:hover {
-  text-decoration: underline;
-}
-a[href].selfRef:hover {
-  background-color: var(--highlight-color);
 }
 a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
@@ -519,9 +521,9 @@ img {
 figure {
   margin: 0.5em 0;
   padding: 0;
-}
-figure blockquote {
-  margin: 0.8em 0.4em 0.4em;
+  & blockquote {
+    margin: 0.8em 0.4em 0.4em;
+  }
 }
 figcaption, caption {
   font-style: italic;
@@ -531,17 +533,19 @@ figcaption, caption {
 }
 @media screen {
   /* Auto-collapse boilerplate. */
-  :is(#status-of-memo, #copyright) p {
-    margin: -2px 0;
-    max-height: 0;
-    transition: max-height 2s ease, margin 0.5s ease 0.5s;
-    overflow: hidden;
-  }
-  :is(#status-of-memo, #copyright):hover p,
-  :is(#status-of-memo, #copyright) h2:target ~ p {
-    margin: 0.5em 0;
-    max-height: 500px;
-    overflow: auto;
+  :is(#status-of-memo, #copyright) {
+    & p {
+      margin: -2px 0;
+      max-height: 0;
+      transition: max-height 2s ease, margin 0.5s ease 0.5s;
+      overflow: hidden;
+    }
+    &:hover p,
+    & h2:target ~ p {
+      margin: 0.5em 0;
+      max-height: 500px;
+      overflow: auto;
+    }
   }
   pre, svg {
     display: inline-block;
@@ -577,6 +581,7 @@ aside, blockquote {
 }
 blockquote {
   margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
 }
 cite {
   display: block;
@@ -590,25 +595,17 @@ table {
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
-}
-table.right {
-  margin-left: auto;
-}
-table.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-table.left {
-  margin-right: auto;
-}
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
+  &.right { margin-left: auto; }
+  &.center { margin-left: auto; margin-right: auto; }
+  &.left { margin-right: auto; }
+  & .text-left { text-align: left; }
+  & .text-center { text-align: center; }
+  & .text-right { text-align: right; }
+  & caption {
+    margin: 0;
+    padding: 3px 0 3px 1em;
+  }
+  & p { margin: 0; }
 }
 
 thead, tbody {
@@ -628,13 +625,6 @@ th {
 :is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
   background-color: var(--highlight-color);
 }
-table caption {
-  margin: 0;
-  padding: 3px 0 3px 1em;
-}
-table p {
-  margin: 0;
-}
 
 /* pilcrow */
 a.pilcrow {
@@ -645,18 +635,16 @@ a.pilcrow {
     color: var(--pilcrow-weak);
     &:hover { text-decoration: none; }
   }
-}
-@media not print {
-  :hover > a.pilcrow {
-    opacity: 1;
+  @media not print {
+    :hover > &, &:focus {
+      opacity: 1;
+    }
+    &[href]:hover {
+      color: var(--pilcrow-strong);
+      background-color: transparent;
+    }
   }
-  a.pilcrow[href]:hover {
-    color: var(--pilcrow-strong);
-    background-color: transparent;
-  }
-}
-@media print {
-  a.pilcrow {
+  @media print {
     display: none;
   }
 }
@@ -715,9 +703,9 @@ sub, sup {
   font-size: 0.9em;
   font-style: italic;
   margin-top: 2em;
-}
-.docInfo .prepared {
-  float: right;
+  & .prepared {
+    float: right;
+  }
 }
 
 /* table of contents */
@@ -807,23 +795,27 @@ hr.addr {
   max-width: calc(100% - 16px);
 }
 @media (min-width: 500px) {
-  #authors-addresses > section {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  #authors-addresses > section > h2 {
-    column-span: all;
-  }
-  /* hack for break-inside: avoid-column */
-  #authors-addresses address {
-    display: inline-block;
-    break-inside: avoid-column;
+  #authors-addresses {
+    & > section {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    & > section > h2 {
+      column-span: all;
+    }
+    /* hack for break-inside: avoid-column */
+    & address {
+      display: inline-block;
+      break-inside: avoid-column;
+    }
   }
 }
 
 /* Comments */
-.rfcEditorRemove p:first-of-type {
-  font-style: italic;
+.rfcEditorRemove {
+  & p:first-of-type {
+    font-style: italic;
+  }
 }
 .cref {
   background-color: rgba(249, 232, 105, 0.3);
@@ -834,19 +826,21 @@ hr.addr {
 }
 
 @media screen {
-  #toc nav {
-    font-family: var(--font-title);
-    font-weight: 360;
-    & > ul { margin-bottom: 2em; }
-    & ul {
-      margin: 0 0 0 4px;
-      & :is(p, li) {
-        margin: 2px 0;
+  #toc {
+    & nav {
+      font-family: var(--font-title);
+      font-weight: 360;
+      & > ul { margin-bottom: 2em; }
+      & ul {
+        margin: 0 0 0 4px;
+        & :is(p, li) {
+          margin: 2px 0;
+        }
       }
     }
-  }
-  #toc a.toplink {
-    float: right;
+    & a.toplink {
+      float: right;
+    }
   }
 }
 @media not screen {
@@ -867,54 +861,54 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 2px 0 2px 6px;
-    padding-right: 1em;
-    font-size: 18px;
-    line-height: 24px;
-    min-width: 190px;
-    text-align: right;
-    background-color: #444;
-    color: white;
-    cursor: pointer;
-    &::before { /* css hamburger */
-      float: right;
-      position: relative;
-      width: 1em;
-      height: 1px;
-      left: -164px;
-      margin: 8px 0 0 0;
-      background: white none repeat scroll 0 0;
-      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-      content: "";
+    & h2 {
+      margin: 0;
+      padding: 2px 0 2px 6px;
+      padding-right: 1em;
+      font-size: 18px;
+      line-height: 24px;
+      min-width: 190px;
+      text-align: right;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      &::before { /* css hamburger */
+        float: right;
+        position: relative;
+        width: 1em;
+        height: 1px;
+        left: -164px;
+        margin: 8px 0 0 0;
+        background: white none repeat scroll 0 0;
+        box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+        content: "";
+      }
     }
-  }
-  #toc nav {
-    display: none;
-    background-color: var(--background-color);
-    padding: 0.5em 1em 1em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    height: calc(100vh - 48px);
-    border-left: 1px solid #ddd;
-  }
-  #toc.active {
-    opacity: 1;
-    & nav { display: block; }
-  }
-  /* Make the collapsed ToC header render white on gray also when it's a link */
-  #toc h2 a,
-  #toc h2 a:is(:link, :focus, :hover),
-  #toc a.toplink,
-  #toc a.toplink:hover {
-    color: white;
-    background-color: #444;
-    text-decoration: none;
-  }
-  #toc a.toplink {
-    margin: 2px 0.5em 0;
+    & nav {
+      display: none;
+      background-color: var(--background-color);
+      padding: 0.5em 1em 1em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      height: calc(100vh - 48px);
+      border-left: 1px solid #ddd;
+    }
+    &.active {
+      opacity: 1;
+      & nav { display: block; }
+    }
+    /* Make the collapsed ToC header render white on gray also when it's a link */
+    & h2 a,
+    & h2 a:is(:link, :focus, :hover),
+    & a.toplink,
+    & a.toplink:hover {
+      color: white;
+      background-color: #444;
+      text-decoration: none;
+    }
+    & a.toplink {
+      margin: 2px 0.5em 0;
+    }
   }
 }
 
@@ -933,26 +927,26 @@ hr.addr {
     margin: 0;
     padding: 0;
     z-index: 1;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 0.25em 1em 1em 0;
-  }
-  #toc nav {
-    display: block;
-    height: calc(90vh - 84px);
-    bottom: 0;
-    padding: 0.5em 0 2em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
+    & h2 {
+      margin: 0;
+      padding: 0.25em 1em 1em 0;
+    }
+    & nav {
+      display: block;
+      height: calc(90vh - 84px);
+      bottom: 0;
+      padding: 0.5em 0 2em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+    & a.toplink {
+      margin: 8px 0.5em 0;
+    }
   }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
-  }
-  #toc a.toplink {
-    margin: 8px 0.5em 0;
   }
 }
 
@@ -968,12 +962,13 @@ hr.addr {
   #n-copyright-notice {
     border-bottom: none;
   }
-  #toc, #n-introduction {
-    page-break-before: always;
-  }
   #toc {
+    page-break-before: always;
     border-top: none;
     padding-top: 0;
+  }
+  #n-introduction {
+    page-break-before: always;
   }
   figure, pre, .vcard {
     page-break-inside: avoid;
@@ -1035,17 +1030,19 @@ hr.addr {
 }
 
 /* SVG Trick: a prefix match works because only black and white are allowed */
-svg :is([stroke="black"], [stroke^="#000"]) {
-  stroke: var(--text-color);
-}
-svg :is([stroke="white"], [stroke^="#fff"]) {
-  stroke: var(--background-color);
-}
-svg :is([fill="black"], [fill^="#000"], :not([fill])) {
-  fill: var(--text-color);
-}
-svg :is([fill="white"], [fill^="#fff"]) {
-  fill: var(--background-color);
+svg {
+  & :is([stroke="black"], [stroke^="#000"]) {
+    stroke: var(--text-color);
+  }
+  & :is([stroke="white"], [stroke^="#fff"]) {
+    stroke: var(--background-color);
+  }
+  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+    fill: var(--text-color);
+  }
+  & :is([fill="white"], [fill^="#fff"]) {
+    fill: var(--background-color);
+  }
 }
 </style>
 
@@ -1055,11 +1052,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">NETCONF Pagination Support</td>
-<td class="right">September 2025</td>
+<td class="right">October 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Watsen, et al.</td>
-<td class="center">Expires 27 March 2026</td>
+<td class="center">Expires 24 April 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1072,12 +1069,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-netconf-list-pagination-nc-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-09-23" class="published">23 September 2025</time>
+<time datetime="2026-10-21" class="published">21 October 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-03-27">27 March 2026</time></dd>
+<dd class="expires"><time datetime="2027-04-24">24 April 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1143,7 +1140,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 27 March 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 24 April 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1152,7 +1149,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1253,10 +1250,38 @@ svg :is([fill="white"], [fill^="#fff"]) {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-D" class="auto internal xref">Appendix D</a>.  <a href="#name-campus-network-operation-ag" class="internal xref">Campus Network Operation Agent Test Requirements</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.1">
+                <p id="section-toc.1-1.12.2.1.1"><a href="#appendix-D.1" class="auto internal xref">D.1</a>.  <a href="#name-network-topology-test-requi" class="internal xref">Network Topology Test Requirements</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.2">
+                <p id="section-toc.1-1.12.2.2.1"><a href="#appendix-D.2" class="auto internal xref">D.2</a>.  <a href="#name-interactive-qa-task-test-re" class="internal xref">Interactive Q&amp;A Task Test Requirements</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.3">
+                <p id="section-toc.1-1.12.2.3.1"><a href="#appendix-D.3" class="auto internal xref">D.3</a>.  <a href="#name-autonomous-response-task-te" class="internal xref">Autonomous Response Task Test Requirements</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.13.1"><a href="#appendix-E" class="auto internal xref">Appendix E</a>.  <a href="#name-data-center-network-operati" class="internal xref">Data Center Network Operation Agent Test Requirements</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.1">
+                <p id="section-toc.1-1.13.2.1.1"><a href="#appendix-E.1" class="auto internal xref">E.1</a>.  <a href="#name-network-topology-test-requir" class="internal xref">Network Topology Test Requirements</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.2">
+                <p id="section-toc.1-1.13.2.2.1"><a href="#appendix-E.2" class="auto internal xref">E.2</a>.  <a href="#name-interactive-qa-task-test-req" class="internal xref">Interactive Q&amp;A Task Test Requirements</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.3">
+                <p id="section-toc.1-1.13.2.3.1"><a href="#appendix-E.3" class="auto internal xref">E.3</a>.  <a href="#name-autonomous-response-task-tes" class="internal xref">Autonomous Response Task Test Requirements</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
+            <p id="section-toc.1-1.14.1"><a href="#appendix-F" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15">
+            <p id="section-toc.1-1.15.1"><a href="#appendix-G" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1680,7 +1705,7 @@ module defined in <span>[<a href="#RFC8526" class="cite xref">RFC8526</a>]</span
 <dd class="break"></dd>
 <dt id="RFC8407">[RFC8407]</dt>
         <dd>
-<span class="refAuthor">Bierman, A.</span>, <span class="refTitle">"Guidelines for Authors and Reviewers of Documents Containing YANG Data Models"</span>, <span class="seriesInfo">BCP 216</span>, <span class="seriesInfo">RFC 8407</span>, <span class="seriesInfo">DOI 10.17487/RFC8407</span>, <time datetime="2018-10" class="refDate">October 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8407">https://www.rfc-editor.org/rfc/rfc8407</a>&gt;</span>. </dd>
+<span class="refAuthor">Bierman, A.</span>, <span class="refTitle">"Guidelines for Authors and Reviewers of Documents Containing YANG Data Models"</span>, <span class="seriesInfo">RFC 8407</span>, <span class="seriesInfo">DOI 10.17487/RFC8407</span>, <time datetime="2018-10" class="refDate">October 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8407">https://www.rfc-editor.org/rfc/rfc8407</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8446">[RFC8446]</dt>
         <dd>
@@ -1701,7 +1726,7 @@ module defined in <span>[<a href="#RFC8526" class="cite xref">RFC8526</a>]</span
 <dl class="references">
 <dt id="I-D.ietf-netconf-list-pagination">[I-D.ietf-netconf-list-pagination]</dt>
         <dd>
-<span class="refAuthor">Watsen, K.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Andersson, P.</span>, <span class="refAuthor">Hagsand, O.</span>, and <span class="refAuthor">H. Li</span>, <span class="refTitle">"List Pagination for YANG-driven Protocols"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-netconf-list-pagination-07</span>, <time datetime="2025-04-03" class="refDate">3 April 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-netconf-list-pagination-07">https://datatracker.ietf.org/doc/html/draft-ietf-netconf-list-pagination-07</a>&gt;</span>. </dd>
+<span class="refAuthor">Watsen, K.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Andersson, P.</span>, <span class="refAuthor">Hagsand, O.</span>, and <span class="refAuthor">H. Li</span>, <span class="refTitle">"List Pagination for YANG-driven Protocols"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-netconf-list-pagination-14</span>, <time datetime="2026-10-09" class="refDate">9 October 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-netconf-list-pagination-14">https://datatracker.ietf.org/doc/html/draft-ietf-netconf-list-pagination-14</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-netconf-restconf-collection">[I-D.ietf-netconf-restconf-collection]</dt>
         <dd>
@@ -1832,23 +1857,413 @@ module defined in <span>[<a href="#RFC8526" class="cite xref">RFC8526</a>]</span
 </div>
 </section>
 </div>
-<div id="acknowledgments">
+<div id="campus-network-operation-agent-test-requirements">
 <section id="appendix-D">
+      <h2 id="name-campus-network-operation-ag">
+<a href="#appendix-D" class="section-number selfRef">Appendix D. </a><a href="#name-campus-network-operation-ag" class="section-name selfRef">Campus Network Operation Agent Test Requirements</a>
+      </h2>
+<div id="network-topology-test-requirements">
+<section id="appendix-D.1">
+        <h3 id="name-network-topology-test-requi">
+<a href="#appendix-D.1" class="section-number selfRef">D.1. </a><a href="#name-network-topology-test-requi" class="section-name selfRef">Network Topology Test Requirements</a>
+        </h3>
+<p id="appendix-D.1-1">The campus network operation agent test needs to support a typical test network topology
+as shown in <a href="#campus" class="auto internal xref">Figure 1</a>, including the network device layer, operation and maintenance
+management system, AI agent module, and AI agent test system.<a href="#appendix-D.1-1" class="pilcrow">¶</a></p>
+<span id="name-campus-network-operation-te"></span><div id="campus">
+<figure id="figure-1">
+          <div class="alignCenter art-text artwork" id="appendix-D.1-2.1">
+<pre>
+                      +-------------------------+
+                      | Campus Network Operation|
+                      |        Agent            |
+                      +----------+--------------+
+                                 |
++--------------------------------+--------------------------------+
+|                            ----+---                             |
+|                        ////        \\\\                         |
+|                       |    Internet/   |                        |
+|                       |      WAN       |                        |
+|                        \\\\        ////                         |
+|                            ----+---                             |
+|                                |GE0/0/1                         |
+|                         +------+------+                         |
+| Aggregation             | o o o o  oo |S3                       |
+|                  +-----++-------------++-------+                |
+|                  |      | o o o o  oo |        |                |
+|                  |      +-------------+        |                |
+|                  |                             |                |
+|      +-----------+---------+       +-----------+---------+      |
+|      |         GE0/0/1     |       |        GE0/0/1      |      |
+|Access|     +-----+-----+   |       |     +-----+-----+   |      |
+|      |     |O O O    o |S1 |       |     |O O O    o |S2 |      |
+|      |     +-----+-----+   |       |     +-----+-----+   |      |
+|      |  GE0/0/2  |  GE0/0/3|       |   GE0/0/2 | GE0/0/3 |      |
+|      |   +-------------+   |       |   +-------------+   |      |
+|      |+--+--+       +--+--+|       |+--+--+       +--+--+|      |
+|      ||AP1  |       |AP2  ||       || AP3 |       |AP4  ||      |
+|      |+-----+       +-----+|       |+-----+       +-----+|      |
+|      +---------------------+       +---------------------+      |
+|                                                                 |
+|                                                                 |
+|       +------+  +------+           +------+  +------+           |
+|Device |Laptop|  |Phone |....       |Laptop|  |Phone |...        |
+|       +------+  +------+           +------+  +------+           |
++-----------------------------------------------------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
+<a href="#name-campus-network-operation-te" class="selfRef">Campus Network Operation Test Agent Network Topology</a>
+          </figcaption></figure>
+</div>
+<span id="name-test-system-configuration-r"></span><div id="tab-test-config">
+<table class="center" id="table-1">
+          <caption>
+<a href="#table-1" class="selfRef">Table 1</a>:
+<a href="#name-test-system-configuration-r" class="selfRef">Test System Configuration Requirements</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Test Config</th>
+              <th class="text-left" rowspan="1" colspan="1">Category</th>
+              <th class="text-left" rowspan="1" colspan="1">Config Capabilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">SUT</td>
+              <td class="text-left" rowspan="1" colspan="1">Mobile Phone/Laptop</td>
+              <td class="text-left" rowspan="1" colspan="1">2.4G Access,5G Access</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Network Element</td>
+              <td class="text-left" rowspan="1" colspan="1">WLAN AP</td>
+              <td class="text-left" rowspan="1" colspan="1">Telemetry Support</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Network Element</td>
+              <td class="text-left" rowspan="1" colspan="1">Switch</td>
+              <td class="text-left" rowspan="1" colspan="1">Telemetry Support</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Network Operation Agent</td>
+              <td class="text-left" rowspan="1" colspan="1">O&amp;M Management System</td>
+              <td class="text-left" rowspan="1" colspan="1">Support configuration distribution, state monitoring, and fault handling through the existing management system</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Network Operation Large Model</td>
+              <td class="text-left" rowspan="1" colspan="1">LLM</td>
+              <td class="text-left" rowspan="1" colspan="1">Identify the model vendor, version, and number of parameters and deployed model locally to ensure data remains within the domain</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Network Operation Agent Hardware Platform</td>
+              <td class="text-left" rowspan="1" colspan="1">Hardware Platform</td>
+              <td class="text-left" rowspan="1" colspan="1">GPU/NPU Model and Number</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Agetn Test System</td>
+              <td class="text-left" rowspan="1" colspan="1">Test Sytem</td>
+              <td class="text-left" rowspan="1" colspan="1">simulate scenarios such as traffic peaks and sudden surges with mixed east-west and north-south traffic using a professional traffic testing instrument collect agent operation information and produce test results</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+</section>
+</div>
+<div id="interactive-qa-task-test-requirements">
+<section id="appendix-D.2">
+        <h3 id="name-interactive-qa-task-test-re">
+<a href="#appendix-D.2" class="section-number selfRef">D.2. </a><a href="#name-interactive-qa-task-test-re" class="section-name selfRef">Interactive Q&amp;A Task Test Requirements</a>
+        </h3>
+<p id="appendix-D.2-1">The Test requirements for Campus Network Operation Agent scenario is shown as follows:<a href="#appendix-D.2-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-2">
+          <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Test Objective</th>
+              <th class="text-left" rowspan="1" colspan="1">Verify the ability to understand intent, retrieve knowledge, and assist in execution in human-machine dialogue or machine-machine interaction scenarios.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Case Requirements</td>
+              <td class="text-left" rowspan="1" colspan="1">Cover at least three scenarios: information query, fault diagnosis, and configuration change. Each scenario must have at least three test cases (including normal requests and malicious requests for security testing), covering different difficulty levels from T1 to T3 (basic, medium, and hard).</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Topo</td>
+              <td class="text-left" rowspan="1" colspan="1">Refer to campus topo to select typical network deployment scenarios such as smart classroom or dormitory</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Preset Condition</td>
+              <td class="text-left" rowspan="1" colspan="1">a)The network environment is running stably, and baseline data has been collected.b)The O&amp;M system's agent capability is enabled and has the necessary tools access permissions.c) The test system has been configured.</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Step</td>
+              <td class="text-left" rowspan="1" colspan="1">a) Request Initiation: The test script simulates a user or upper-layer agent, initiating requests via natural language or structured APIs b) Interaction Process: The test system records the entire execution process of the agent and changes in network status, including the agent's response content and execution results c)Result Determination: Scores are given based on the accuracy, completeness, timeliness, and security of the response content.</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Expected Results</td>
+              <td class="text-left" rowspan="1" colspan="1">Calculate the score based on Agent capability to tackle the interactive task test questions</td>
+            </tr>
+          </tbody>
+        </table>
+</section>
+</div>
+<div id="autonomous-response-task-test-requirements">
+<section id="appendix-D.3">
+        <h3 id="name-autonomous-response-task-te">
+<a href="#appendix-D.3" class="section-number selfRef">D.3. </a><a href="#name-autonomous-response-task-te" class="section-name selfRef">Autonomous Response Task Test Requirements</a>
+        </h3>
+<p id="appendix-D.3-1">The Test requirements for Campus Network Operation Agent scenario is shown as follows:<a href="#appendix-D.3-1" class="pilcrow">¶</a></p>
+<span id="name-interactive-qa-test-system-"></span><div id="campus-interact">
+<table class="center" id="table-3">
+          <caption>
+<a href="#table-3" class="selfRef">Table 3</a>:
+<a href="#name-interactive-qa-test-system-" class="selfRef">Interactive Q&amp;A Test System Requirements</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Test Objective</th>
+              <th class="text-left" rowspan="1" colspan="1">Verify the ability of agents to autonomously perceive, analyze, and handle network anomalies without human intervention</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Case Requirement</td>
+              <td class="text-left" rowspan="1" colspan="1">Cover scenarios such as fault and optimization. Each scenario should cover different difficulty levels from T1 to T3 (basic-medium-hard).</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Topo</td>
+              <td class="text-left" rowspan="1" colspan="1">Refer to campus topo to select typical network deployment scenarios such as smart classroom or dormitory</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Pre-set Condition</td>
+              <td class="text-left" rowspan="1" colspan="1">a)The network environment is running stably, and baseline data has been collected.b)The O&amp;M system's agent capability is enabled and has the necessary tools access permissions.c) The test system has been configured.</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Step</td>
+              <td class="text-left" rowspan="1" colspan="1">a)Triggering Event: Pre-set network anomaly events are required for constructing test cases b)Autonomous Execution: The agent automatically perceives the event and executes inference and handling procedures c)Data Acquisition: The test system records the agent execution process and network state changes b)Results Determination:The final network state is compared with the expected state to calculate the task score</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Expected Results</td>
+              <td class="text-left" rowspan="1" colspan="1">Calculate the score based on the agent capability to tackle the Responsive task test questions</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="data-center-network-operation-agent-test-requirements">
+<section id="appendix-E">
+      <h2 id="name-data-center-network-operati">
+<a href="#appendix-E" class="section-number selfRef">Appendix E. </a><a href="#name-data-center-network-operati" class="section-name selfRef">Data Center Network Operation Agent Test Requirements</a>
+      </h2>
+<p id="appendix-E-1">The data center network operation agent test needs to support a typical test network topology
+as shown in <a href="#dctopo" class="auto internal xref">Figure 2</a>, including the network device layer, operation and maintenance
+management system, AI agent module, and AI agent test system.<a href="#appendix-E-1" class="pilcrow">¶</a></p>
+<div id="network-topology-test-requirements-1">
+<section id="appendix-E.1">
+        <h3 id="name-network-topology-test-requir">
+<a href="#appendix-E.1" class="section-number selfRef">E.1. </a><a href="#name-network-topology-test-requir" class="section-name selfRef">Network Topology Test Requirements</a>
+        </h3>
+<span id="name-data-center-network-operatio"></span><div id="dctopo">
+<figure id="figure-2">
+          <div class="alignCenter art-text artwork" id="appendix-E.1-1.1">
+<pre>
+             +-------------------------------+
+             | Data Center Network Operation |
+             |           Agent               |
+             +-------------+-----------------+
+                           |
+                           |
+ +----------------------------------------------------+
+ |                     +---+----+                     |
+ |                +----| Core 1 +---+                 |
+ |                |    +--------+   |                 |
+ |                |                 |                 |
+ |            +---+----+       +----+---+             |
+ |            | Border |       | Border |             |
+ |            | Leaf1  |       | Leaf2  |             |
+ |            +--------+       +--------+             |
+ |                    -----    ----                   |
+ |                       -------                      |
+ |                 ------       -----                 |
+ |        +---------+             +--------+          |
+ |        |  Spine1 |             | Spine2 |          |
+ |        +----+----+             +----+---+          |
+ |             |                       |              |
+ |          +-----------+-----------+--+--------+     |
+ |          |  |        |           |           |     |
+ |       +--|---------+-|---------+-|---------+ |     |
+ |       |  |         | |         | |         | |     |
+ |  +----+--+-+  +----+-+--+ +----+-+--+ +----+-+--+  |
+ |  |  Server |  |  Server | |  Server | |  Server |  |
+ |  | Leaf 1-1|  | Leaf 1-2| | Leaf 2-1| | Leaf 2-2|  |
+ |  +----+----+  +----+----+ +-----+---+ +-----+---+  |
+ |     +-++-----+-----+--+       +-++-----+----+---+  |
+ |   +-|--|-+---|-+-----+|     +-|--|-+---|-+-----+|  |
+ | +-+-++++-+-+++-+-++--+++  +-+-++++-+-+++-+-++--+++ |
+ | |    ||    ||    ||    |  |    ||    ||    ||    | |
+ | | svr|| svr|| svr|| svr|  | svr|| svr|| svr|| svr| |
+ | | 1-1|| 1-2|| 1-3|| 1-4|  | 2-1|| 2-2|| 2-3|| 2-4| |
+ | |    ||    ||    ||    |  |    ||    ||    ||    | |
+ | +----++----++----++----+  +----++----++----++----+ |
+ |                                                    |
+ +----------------------------------------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
+<a href="#name-data-center-network-operatio" class="selfRef">Data Center Network Operation Test Agent Network Topology</a>
+          </figcaption></figure>
+</div>
+<span id="name-test-system-configuration-re"></span><div id="tab-dctest-config">
+<table class="center" id="table-4">
+          <caption>
+<a href="#table-4" class="selfRef">Table 4</a>:
+<a href="#name-test-system-configuration-re" class="selfRef">Test System Configuration Requirements</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Test Config</th>
+              <th class="text-left" rowspan="1" colspan="1">Category</th>
+              <th class="text-left" rowspan="1" colspan="1">Config Capabilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">network element</td>
+              <td class="text-left" rowspan="1" colspan="1">spine and leaf switch</td>
+              <td class="text-left" rowspan="1" colspan="1">The network topology includes 2 Spine nodes, 4 Server Leaf nodes, and 2 Border Leaf nodes. Constraints: The basic configuration uses OSPF Area 0 in the core layer, Area 1/2 in the aggregation layer, and static routing in some peripheral networks; supports BGP, EVPN, and VXLAN; all network devices support Telemetry technology with a sampling interval of no more than 10 seconds, covering all dimensions of indicators including interfaces, traffic, protocols, and performance; firewalls, load balancers, and egress routers can be added.</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Network Operation Agent</td>
+              <td class="text-left" rowspan="1" colspan="1">O&amp;M Management System</td>
+              <td class="text-left" rowspan="1" colspan="1">Support configuration distribution, state monitoring, and fault handling through the existing management system</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Network Operation Large Model</td>
+              <td class="text-left" rowspan="1" colspan="1">LLM</td>
+              <td class="text-left" rowspan="1" colspan="1">Identify the model vendor, version, and number of parameters and deployed model locally to ensure data remains within the domain</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Network Operation Agent Hardware Platform</td>
+              <td class="text-left" rowspan="1" colspan="1">Hardware Platform</td>
+              <td class="text-left" rowspan="1" colspan="1">GPU/NPU Model and Number</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Agetn Test System</td>
+              <td class="text-left" rowspan="1" colspan="1">Test Sytem</td>
+              <td class="text-left" rowspan="1" colspan="1">simulate scenarios such as traffic peaks and sudden surges with mixed east-west and north-south traffic using a professional traffic testing instrument collect agent operation information and produce test results</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+</section>
+</div>
+<div id="interactive-qa-task-test-requirements-1">
+<section id="appendix-E.2">
+        <h3 id="name-interactive-qa-task-test-req">
+<a href="#appendix-E.2" class="section-number selfRef">E.2. </a><a href="#name-interactive-qa-task-test-req" class="section-name selfRef">Interactive Q&amp;A Task Test Requirements</a>
+        </h3>
+<p id="appendix-E.2-1">The Test requirements for Data Center Network Operation Agent scenario is shown as follows:<a href="#appendix-E.2-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-5">
+          <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Test Objective</th>
+              <th class="text-left" rowspan="1" colspan="1">Verify the comprehensive processing capabilities for tasks such as configuration changes and troubleshooting queries in human-machine or machine-to-machine interaction scenarios, and evaluate the accuracy of task completion, interaction efficiency, and security compliance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Case Requirements</td>
+              <td class="text-left" rowspan="1" colspan="1">Cover at least three scenarios: information query, fault diagnosis, and configuration change. Each scenario must have at least five test cases (including normal requests and malicious requests for security testing), covering different difficulty levels from T1 to T3 (basic, medium, and hard).</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Topo</td>
+              <td class="text-left" rowspan="1" colspan="1">Refer to data center topo to select typical network deployment scenarios such as finance</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Preset Condition</td>
+              <td class="text-left" rowspan="1" colspan="1">a)The network environment is running stably, and baseline data has been collected b)The O&amp;M system's agent capability is enabled and has the necessary tools access permissions c) The test system has been configured d) The agent's context window must be cleared before each test case begins e) Each test case is based on the standard natural language Prompt library and structured API request templates</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Step</td>
+              <td class="text-left" rowspan="1" colspan="1">a) Enter the agent testing interface b) Initiate a request: The test script simulates a user or upper-layer agent, initiating requests via natural language or structured APIs c) Interaction process: The test system records the entire execution process of the agent and network status changes, including the agent's response content, execution results, interaction rounds, number of error messages, over-budget follow-up queries, task completion time, and security violations d) Result Evaluation: Based on the interactive task scoring criteria, the accuracy, completeness, timeliness, and security of the interaction content are scored</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Expected Results</td>
+              <td class="text-left" rowspan="1" colspan="1">Calculate the score based on the agent capability to tackle the interactive task test questions.For example, accuracy: whether the final configuration or diagnostic conclusion is correct; efficiency: fewer interaction rounds and shorter time consumption result in higher scores; security: no security violations throughout the process; output process: readability and logical clarity of responses</td>
+            </tr>
+          </tbody>
+        </table>
+</section>
+</div>
+<div id="autonomous-response-task-test-requirements-1">
+<section id="appendix-E.3">
+        <h3 id="name-autonomous-response-task-tes">
+<a href="#appendix-E.3" class="section-number selfRef">E.3. </a><a href="#name-autonomous-response-task-tes" class="section-name selfRef">Autonomous Response Task Test Requirements</a>
+        </h3>
+<p id="appendix-E.3-1">The Test requirements for Data Center Network Operation Agent Scenario is shown as follows:<a href="#appendix-E.3-1" class="pilcrow">¶</a></p>
+<span id="name-interactive-qa-test-system-r"></span><div id="dc-interact">
+<table class="center" id="table-6">
+          <caption>
+<a href="#table-6" class="selfRef">Table 6</a>:
+<a href="#name-interactive-qa-test-system-r" class="selfRef">Interactive Q&amp;A Test System Requirements</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Test Objective</th>
+              <th class="text-left" rowspan="1" colspan="1">Verify the ability of agents to autonomously perceive, analyze, and handle network anomalies without human intervention</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Case Requirement</td>
+              <td class="text-left" rowspan="1" colspan="1">Cover scenarios such as fault and optimization. Each scenario should cover different difficulty levels from T1 to T3 (basic-medium-hard).</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Topo</td>
+              <td class="text-left" rowspan="1" colspan="1">Refer to dc topo to select typical network deployment scenarios such as finance</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Pre-set Condition</td>
+              <td class="text-left" rowspan="1" colspan="1">a) The network environment is running stably with managed network devices, collected baseline data, and the normal network status b) The O&amp;M system's agent capability is enabled and has the corresponding tools access permissions c) The testing system has been configured d) Before each test case begins, the network environment returns to normal. Based on a unified initial configuration snapshot of the network devices, the system automatically rolls back after each test to ensure configuration consistency</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Test Step</td>
+              <td class="text-left" rowspan="1" colspan="1">a) Triggered Events: Pre-set network anomaly events are required for constructing test cases, and the fault trigger time is recorded b) Autonomous Execution: The agent automatically perceives the event and executes the reasoning and handling process c) Data Acquisition: The test system records the entire agent execution process,network state changes,task completion time, whether security violations occurred, and the completeness of audit logs d) Result Determination: The final network state is compared with the expected state to assess the service impact and calculate the score</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Expected Resutls</td>
+              <td class="text-left" rowspan="1" colspan="1">Calculate the score based on the agent capability to tackle the responsive task test questions</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="acknowledgments">
+<section id="appendix-F">
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-D-1">This work has benefited from the discussions of RESTCONF resource
+<p id="appendix-F-1">This work has benefited from the discussions of RESTCONF resource
    collection over the years, in particular,
    <span>[<a href="#I-D.ietf-netconf-restconf-collection" class="cite xref">I-D.ietf-netconf-restconf-collection</a>]</span> which provides enhanced
    filtering features for the retrieval of data nodes with the GET
    method and <span>[<a href="#I-D.zheng-netconf-fragmentation" class="cite xref">I-D.zheng-netconf-fragmentation</a>]</span> which document large
    size data handling challenge.  The authors would like to thank the
    following for lively discussions on list (ordered by first name):
-   Andy Bierman, Martin Björklund, Robert Varga, and Robert Wilton.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
+   Andy Bierman, Martin Björklund, Robert Varga, and Robert Wilton.<a href="#appendix-F-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-E">
+<section id="appendix-G">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
