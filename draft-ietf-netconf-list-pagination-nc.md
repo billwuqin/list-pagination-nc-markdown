@@ -409,8 +409,7 @@ management system, AI agent module, and AI agent test system.
 |Network Operation Agent|O&M Management System|Support configuration distribution, state monitoring, and fault handling through the existing management system|
 |Network Operation Large Model|LLM|Identify the model vendor, version, and number of parameters and deployed model locally to ensure data remains within the domain|
 |Network Operation Agent Hardware Platform|Hardware Platform|GPU/NPU Model and Number|
-|Agetn Test System|Test Sytem|simulate scenarios such as traffic peaks and sudden surges with mixed east-west and north-south traffic using a professional traffic testing instrument
-collect agent operation information and produce test results|
+|Agetn Test System|Test Sytem|simulate scenarios such as traffic peaks and sudden surges with mixed east-west and north-south traffic using a professional traffic testing instrument collect agent operation information and produce test results|
 {: #tab-test-config title="Test System Configuration Requirements"}
 
 ## Interactive Q&A Task Test Requirements
@@ -495,8 +494,7 @@ management system, AI agent module, and AI agent test system.
 
 | Test Config | Category | Config Capabilities|
 |---|---|---|
-|network element|spine and leaf switch|The network topology includes 2 Spine nodes, 4 Server Leaf nodes, and 2 Border Leaf nodes.
-Constraints: The basic configuration uses OSPF Area 0 in the core layer, Area 1/2 in the aggregation layer, and static routing in some peripheral networks; supports BGP, EVPN, and VXLAN; all network devices support Telemetry technology with a sampling interval of no more than 10 seconds, covering all dimensions of indicators including interfaces, traffic, protocols, and performance; firewalls, load balancers, and egress routers can be added.|
+|network element|spine and leaf switch|The network topology includes 2 Spine nodes, 4 Server Leaf nodes, and 2 Border Leaf nodes. Constraints: The basic configuration uses OSPF Area 0 in the core layer, Area 1/2 in the aggregation layer, and static routing in some peripheral networks; supports BGP, EVPN, and VXLAN; all network devices support Telemetry technology with a sampling interval of no more than 10 seconds, covering all dimensions of indicators including interfaces, traffic, protocols, and performance; firewalls, load balancers, and egress routers can be added.|
 |Network Operation Agent|O&M Management System|Support configuration distribution, state monitoring, and fault handling through the existing management system|
 |Network Operation Large Model|LLM|Identify the model vendor, version, and number of parameters and deployed model locally to ensure data remains within the domain|
 |Network Operation Agent Hardware Platform|Hardware Platform|GPU/NPU Model and Number|
