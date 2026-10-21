@@ -420,8 +420,7 @@ The Test requirements for Campus Network Operation Agent scenario is shown as fo
 |---|---|
 |Test Case Requirements|Cover at least three scenarios: information query, fault diagnosis, and configuration change. Each scenario must have at least three test cases (including normal requests and malicious requests for security testing), covering different difficulty levels from T1 to T3 (basic, medium, and hard).|
 |Test Topo|Refer to campus topo to select typical network deployment scenarios such as smart classroom or dormitory|
-|Preset Condition|a)The network environment is running stably, and baseline data has been collected.b)The O&M system's agent capability is enabled and has the
-necessary tools access permissions.c) The test system has been configured.|
+|Preset Condition|a)The network environment is running stably, and baseline data has been collected.b)The O&M system's agent capability is enabled and has the necessary tools access permissions.c) The test system has been configured.|
 |Test Step|a) Request Initiation: The test script simulates a user or upper-layer agent, initiating requests via natural language or structured APIs b) Interaction Process: The test system records the entire execution process of the agent and changes in network status, including the agent's response content and execution results c)Result Determination: Scores are given based on the accuracy, completeness, timeliness, and security of the response content.|
 |Expected Results|Calculate the score based on Agent capability to tackle the interactive task test questions|
 
@@ -433,10 +432,8 @@ The Test requirements for Campus Network Operation Agent scenario is shown as fo
 |---|---|
 |Test Case Requirement|Cover scenarios such as fault and optimization. Each scenario should cover different difficulty levels from T1 to T3 (basic-medium-hard).|
 |Test Topo|Refer to campus topo to select typical network deployment scenarios such as smart classroom or dormitory|
-|Pre-set Condition|a)The network environment is running stably, and baseline data has been collected.b)The O&M system's agent capability is enabled and has the
-necessary tools access permissions.c) The test system has been configured.|
-|Test Step|a)Triggering Event: Pre-set network anomaly events are required for constructing test cases b)Autonomous Execution: The agent automatically perceives
-the event and executes inference and handling procedures c)Data Acquisition: The test system records the agent execution process and network state changes b)Results Determination:The final network state is compared with the expected state to calculate the task score|
+|Pre-set Condition|a)The network environment is running stably, and baseline data has been collected.b)The O&M system's agent capability is enabled and has the necessary tools access permissions.c) The test system has been configured.|
+|Test Step|a)Triggering Event: Pre-set network anomaly events are required for constructing test cases b)Autonomous Execution: The agent automatically perceives the event and executes inference and handling procedures c)Data Acquisition: The test system records the agent execution process and network state changes b)Results Determination:The final network state is compared with the expected state to calculate the task score|
 |Expected Results|Calculate the score based on the agent capability to tackle the Responsive task test questions|
 {: #campus-interact title="Interactive Q&A Test System Requirements"}
 
@@ -498,8 +495,7 @@ management system, AI agent module, and AI agent test system.
 |Network Operation Agent|O&M Management System|Support configuration distribution, state monitoring, and fault handling through the existing management system|
 |Network Operation Large Model|LLM|Identify the model vendor, version, and number of parameters and deployed model locally to ensure data remains within the domain|
 |Network Operation Agent Hardware Platform|Hardware Platform|GPU/NPU Model and Number|
-|Agetn Test System|Test Sytem|simulate scenarios such as traffic peaks and sudden surges with mixed east-west and north-south traffic using a professional traffic testing instrument
-collect agent operation information and produce test results|
+|Agetn Test System|Test Sytem|simulate scenarios such as traffic peaks and sudden surges with mixed east-west and north-south traffic using a professional traffic testing instrument collect agent operation information and produce test results|
 {: #tab-dctest-config title="Test System Configuration Requirements"}
 
 ## Interactive Q&A Task Test Requirements
